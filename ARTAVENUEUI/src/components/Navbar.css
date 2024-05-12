@@ -1,0 +1,106 @@
+/* Navbar Container */
+nav {
+  position: relative;
+}
+
+/* Navbar Top Section */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Logo */
+.logo img {
+  width: 150px;
+  height: 80px;
+}
+
+/* Navbar Links */
+.nav-links {
+  margin-left: auto; 
+}
+
+.nav-links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Make the <ul> a flex container */
+}
+
+.nav-links ul li {
+  margin-left: 10px; /* Add space between links */
+  margin-right: 40px;
+  cursor: pointer;
+  transition: color 0.3s;
+  font-size: 19px;
+  display: inline-block; /* Display the <li> elements in a line */
+}
+
+.nav-links ul li:first-child {
+  margin-left: 0; 
+}
+
+.nav-links ul li:hover {
+  color: rgb(23, 23, 23);
+}
+  
+  /* Mobile Menu Content */
+  .menu-content {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: #9b9a97;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .menu-content ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .menu-content ul li {
+    margin-top: 20px;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s, border-radius 0.3s;
+  }
+  
+  .menu-content ul li:hover {
+    background-color: #b1b2b5;
+    border-radius: 5px;
+  }
+  
+  /* Mobile Menu Toggle Button */
+  .menu-toggle button {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  .menu-toggle button:hover {
+    color:rgb(23, 23, 23);
+  }
+  
+  /* For 640 Resolution */
+@media only screen and (min-device-width: 360px) and (max-device-width: 640px) {
+    
+    .nav-links{
+        display: none;
+    }
+    .menu-toggle button {
+        display: flex;
+        border: none;
+        background: none;
+        font-size: 24px;
+        color: #000;
+        cursor: pointer;
+      }
+  }
