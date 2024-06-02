@@ -7,6 +7,7 @@
   import Sell from './components/Sell';
   import About from './components/About';
   import Login from './components/Login';
+  import SignUp from './components/SignUp';
 
   function App() {
     return (
@@ -21,7 +22,7 @@
           <Route path="/Sell" element={<Sell/>} />
           <Route path="/About" element={<About/>} />
           <Route path="/Login" element={<Login/>}/>
-
+          <Route path="/SignUp" element={<SignUp/>}/>
         </Routes>
         {/* <Home/> */}
       </BrowserRouter>

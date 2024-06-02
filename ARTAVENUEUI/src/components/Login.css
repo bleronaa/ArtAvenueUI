@@ -21,12 +21,11 @@
   margin-bottom: 5px;
 }
 .form-group{
-  padding: 30px;
+  padding: 18px;
 }
 .form-group input{
   height:55px;
   width:290px;
-  margin-top: 10px;
 }
  
 .login-container h2 {
@@ -56,11 +55,11 @@
   font-size: 16px;
   cursor: pointer;
 }
-.links{
+.links a{
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
-  font-size: 18px;
+  font-size: 15px;
 }
 .links a:hover{
   color:blue
@@ -79,59 +78,3 @@
   height:100%;
   object-fit: cover;
 }
-/* 
-
-.login-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-}
-
-.modal-content {
-  text-align: center;
-}
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-form {
-  margin-top: 20px;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.error {
-  color: red;
-  margin-top: 10px;
-}
-
-p {
-  margin-top: 10px;
-} */

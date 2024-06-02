@@ -11,13 +11,12 @@ import { FaTwitter } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6"
 import { FaLinkedin } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const { homeData,imageCarousel,NewDiscoveries } = data;
 
-
-
-
+ 
 
   const imageCarouselSettings = {
     infinite: true,
@@ -28,7 +27,10 @@ const Home = () => {
     autoplaySpeed: 3000,
     arrows: false,
   };
-
+const handleBidButtonClick = () => {
+    
+    window.location.href = '/Login';
+  };
   return (
     <>
     <Carousel 
@@ -63,7 +65,7 @@ const Home = () => {
             <img src={image.url} alt={image.name} />
             <p>{image.text}</p>
             <p className='text'>Estimate: {image.estimate}</p>
-            <button className='bid-button'>{image.button}</button>
+            <button className='bid-button' onClick={handleBidButtonClick}>{image.button}</button>
           </div>
         ))}
         
@@ -77,7 +79,7 @@ const Home = () => {
 
            </div>
            <hr className='hrLine'></hr>
-           <h2 className='title'>New Discoveries</h2>
+           <h2 className='title'>New Arrivals</h2>
 
 
            <div className="discoveries">

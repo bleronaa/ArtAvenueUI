@@ -1,116 +1,131 @@
-
-
 {
-
     "homeData": [
-        {
-            "id": 1,
-            "name":"Background",
-            "url": "https://m.media-amazon.com/images/I/81mfTJLkBLL._AC_UF894,1000_QL80_DpWeblab_.jpg",
-            "text":"Unlock Masterpieces, Bid with Passion!"
-            
-        },
-         {
-            "id": 2,
-            "name":"Slider",
-            "url": "https://psmag.com/.image/t_share/MTI3NTgyNDAxNjE3NDk5NDEw/painting.jpg",
-           "text":"Unlock Masterpieces, Bid with Passion!"
-        }
+      {
+        "id": 1,
+        "name": "Background",
+        "url": "https://m.media-amazon.com/images/I/81mfTJLkBLL._AC_UF894,1000_QL80_DpWeblab_.jpg",
+        "text": "Unlock Masterpieces, Bid with Passion!"
+      },
+      {
+        "id": 2,
+        "name": "Slider",
+        "url": "https://psmag.com/.image/t_share/MTI3NTgyNDAxNjE3NDk5NDEw/painting.jpg",
+        "text": "Unlock Masterpieces, Bid with Passion!"
+      }
     ],
-    
     "imageCarousel": [
-        {
-            "id": 1,
-            "name":"Background",
-            "url": "https://render.fineartamerica.com/images/rendered/medium/framed-print/images-medium-5/the-hiding-place-joshua-smith.jpg?imgWI=16&imgHI=20&sku=CRQ13&mat1=PM918&mat2=&t=2&b=2&l=2&r=2&off=0.5&frameW=0.875",
-            "text":"Unlock Masterpieces, Bid with Passion!",
-            "estimate":"40,000-60,000 EU",
-           "button":"Bid"
-            
-        },
-         {
-            "id": 2,
-            "name":"Slider",
-            "url": "https://www.finearttips.com/wp-content/uploads/2010/05/monet_umbrella.jpg",
-           "text":"Unlock Masterpieces, Bid with Passion!",
-           "estimate":"40,000-60,000 EU",
-           "button":"Bid"
-        },
-        {
-            "id": 3,
-            "name":"Slider",
-            "url": "https://www.finearttips.com/wp-content/uploads/2010/05/monet_umbrella.jpg",
-           "text":"Unlock Masterpieces, Bid with Passion!",
-           "estimate":"40,000-60,000 EU",
-           "button":"Bid"
-        },
-        {
-            "id": 4,
-            "name":"Slider",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Kan%C5%8D_Sansetsu_-_Frolicking_Birds_in_Plum_and_Willow_Trees.jpg/800px-Kan%C5%8D_Sansetsu_-_Frolicking_Birds_in_Plum_and_Willow_Trees.jpg",
-           "text":"Unlock Masterpieces, Bid with Passion!",
-           "estimate":"40,000-60,000 EU",
-           "button":"Bid"
-        },
-        {
-            "id": 5,
-            "name":"Background",
-            "url": "https://render.fineartamerica.com/images/rendered/medium/framed-print/images-medium-5/the-hiding-place-joshua-smith.jpg?imgWI=16&imgHI=20&sku=CRQ13&mat1=PM918&mat2=&t=2&b=2&l=2&r=2&off=0.5&frameW=0.875",
-            "text":"Unlock Masterpieces, Bid with Passion!",
-            "estimate":"40,000-60,000 EU",
-           "button":"Bid"
-            
-        }
+      {
+        "id": 1,
+        "name": "Background",
+        "url": "https://render.fineartamerica.com/images/rendered/medium/framed-print/images-medium-5/the-hiding-place-joshua-smith.jpg?imgWI=16&imgHI=20&sku=CRQ13&mat1=PM918&mat2=&t=2&b=2&l=2&r=2&off=0.5&frameW=0.875",
+        "text": "Unlock Masterpieces, Bid with Passion!",
+        "estimate": "40,000-60,000 EU",
+        "button": "Bid",
+        "location": "Prishtine",
+        "category": "Painting"
+      },
+      {
+        "id": 2,
+        "name": "Slider",
+        "url": "https://www.finearttips.com/wp-content/uploads/2010/05/monet_umbrella.jpg",
+        "text": "Unlock Masterpieces, Bid with Passion!",
+        "estimate": "20,000-30,000 EU",
+        "button": "Bid",
+        "location": "Tirane",
+        "category": "Painting"
+      },
+      {
+        "id": 3,
+        "name": "Slider",
+        "url": "https://www.finearttips.com/wp-content/uploads/2010/05/monet_umbrella.jpg",
+        "text": "Unlock Masterpieces, Bid with Passion!",
+        "estimate": "3000-6000EU",
+        "button": "Bid",
+        "location": "Peje",
+        "category": "Fine Art Prints"
+      },
+      {
+        "id": 4,
+        "name": "Slider",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Kan%C5%8D_Sansetsu_-_Frolicking_Birds_in_Plum_and_Willow_Trees.jpg/800px-Kan%C5%8D_Sansetsu_-_Frolicking_Birds_in_Plum_and_Willow_Trees.jpg",
+        "text": "Unlock Masterpieces, Bid with Passion!",
+        "estimate": "40,000-60,000 EU",
+        "button": "Bid",
+        "location": "Gjakove",
+        "category": "Painting"
+      },
+      {
+        "id": 5,
+        "name": "Background",
+        "url": "https://render.fineartamerica.com/images/rendered/medium/framed-print/images-medium-5/the-hiding-place-joshua-smith.jpg?imgWI=16&imgHI=20&sku=CRQ13&mat1=PM918&mat2=&t=2&b=2&l=2&r=2&off=0.5&frameW=0.875",
+        "text": "Unlock Masterpieces, Bid with Passion!",
+        "estimate": "10,000-20,000 EU",
+        "button": "Bid",
+        "location": "Shkoder",
+        "category": "Sculpture"
+      }
     ],
-    "NewDiscoveries":[
+    "NewDiscoveries": [
         {
-            "id":1,
-            "name":"item1",
-            "url":"https://emmahiggins.ie/wp-content/uploads/2022/02/Blackstairs-WM.jpg",
-            "text":"Blackstairs sunset",
-            "estimate":"10,000-20,000 Eu",
-            "button":"Bid"
+          "id": 1,
+          "name": "item1",
+          "url": "https://emmahiggins.ie/wp-content/uploads/2022/02/Blackstairs-WM.jpg",
+          "text": "Blackstairs sunset",
+          "estimate": "10,000-20,000 Eu",
+          "location": "Prishtine",
+          "category": "Painting",
+          "button": "Bid"
         },
         {
-            "id":2,
-            "name":"item2",
-            "url":"https://paintings.kraneil.com/wp-content/uploads/2023/01/seascape2022-scaled.jpg",
-            "text":"Ocean Painting",
-            "estimate":"10,000-20,000 Eu",
-            "button":"Bid"
+          "id": 2,
+          "name": "item2",
+          "url": "https://paintings.kraneil.com/wp-content/uploads/2023/01/seascape2022-scaled.jpg",
+          "text": "Ocean Painting",
+          "estimate": "10,000-20,000 Eu",
+          "location": "Tirane",
+          "category": "Fine Art Prints",
+          "button": "Bid"
         },
         {
-            "id":3,
-            "name":"item3",
-            "url":"https://i.etsystatic.com/21806975/r/il/9589f2/4446367707/il_570xN.4446367707_hrts.jpg",
-            "text":"Violin",
-            "estimate":"8,000-9,000 Eu",
-            "button":"Bid"
+          "id": 3,
+          "name": "item3",
+          "url": "https://i.etsystatic.com/21806975/r/il/9589f2/4446367707/il_570xN.4446367707_hrts.jpg",
+          "text": "Violin",
+          "estimate": "8,000-9,000 Eu",
+          "location": "Shkoder",
+          "category": "Sculpture",
+          "button": "Bid"
         },
         {
-            "id":4,
-            "name":"item4",
-            "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScyBolqFhPhPwjflG_oLzAonJlmX3x2_cWM8GtI5DTYQ&s",
-            "text":"Mountain Landscape",
-            "estimate":"10,000-25,000 Eu",
-            "button":"Bid"
+          "id": 4,
+          "name": "item4",
+          "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScyBolqFhPhPwjflG_oLzAonJlmX3x2_cWM8GtI5DTYQ&s",
+          "text": "Mountain Landscape",
+          "estimate": "10,000-25,000 Eu",
+          "location": "Gjakove",
+          "category": "Painting",
+          "button": "Bid"
         },
         {
-            "id":5,
-            "name":"item5",
-            "url":"https://cdn.britannica.com/44/95844-050-877F3787/Lauerzersee-Schwyz-watercolour-ink-pencil-pen-paper-1848.jpg",
-            "text":"Landscape",
-            "estimate":"10,000-20,000 Eu",
-            "button":"Bid"
+          "id": 5,
+          "name": "item5",
+          "url": "https://cdn.britannica.com/44/95844-050-877F3787/Lauerzersee-Schwyz-watercolour-ink-pencil-pen-paper-1848.jpg",
+          "text": "Landscape",
+          "estimate": "10,000-20,000 Eu",
+          "location": "Vlore",
+          "category": "Painting",
+          "button": "Bid"
         },
         {
-            "id":6,
-            "name":"item6",
-            "url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6CYidfYBc_g9e8lKYH9Jo_oJ2-DyANICLg_sJcozb5w&s",
-            "text":"Seascape",
-            "estimate":"10,000-20,000 Eu",
-            "button":"Bid"
+          "id": 6,
+          "name": "item6",
+          "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6CYidfYBc_g9e8lKYH9Jo_oJ2-DyANICLg_sJcozb5w&s",
+          "text": "Seascape",
+          "estimate": "10,000-20,000 Eu",
+          "location": "Prizren",
+          "category": "Fine Art Prints",
+          "button": "Bid"
         }
-    ]
-
-}
+      ]
+  }
+  

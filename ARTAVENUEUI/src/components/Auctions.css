@@ -1,0 +1,34 @@
+.auctions-container {
+  display: flex;
+}
+
+.sidebar {
+  padding: 20px;
+  width: 250px;
+  border-right: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.sidebar h3 {
+  margin-bottom: 20px;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-section p {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.filter-section div {
+  margin: 5px 0;
+}
+
+.right-content {
+  padding: 20px;
+  flex: 1;
+}
+
+
