@@ -87,7 +87,7 @@ const Sell = () => {
           return (
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
               <Typography variant="h6" gutterBottom>Tell us about your item</Typography>
-              <Typography variant="h2" gutterBottom>General</Typography>
+              <Typography variant="h4" gutterBottom>General</Typography>
               <Typography variant="h6" gutterBottom>Item's country of Origin</Typography>
               <FormControl fullWidth sx={{ mb: 2 }}>
                 <InputLabel>Country</InputLabel>
@@ -118,7 +118,7 @@ const Sell = () => {
                 value={formData.titleOfWork}
                 onChange={(e) => setFormData({ ...formData, titleOfWork: e.target.value })}
               />
-              <Typography variant="h2" gutterBottom>Measurements</Typography>
+              <Typography variant="h4" gutterBottom>Measurements</Typography>
               <Typography variant="h6" gutterBottom>Measurement Unit</Typography>
               <FormControl fullWidth sx={{ mb: 2 }}>
                 <InputLabel>Unit</InputLabel>
@@ -158,7 +158,7 @@ const Sell = () => {
                 value={formData.framedDepth}
                 onChange={(e) => setFormData({ ...formData, framedDepth: e.target.value })}
               />
-              <Typography variant="h2" gutterBottom>Price</Typography>
+              <Typography variant="h4" gutterBottom>Price</Typography>
               <Typography variant="h6" gutterBottom>Price Paid</Typography>
               <TextField
                 fullWidth
@@ -285,7 +285,7 @@ const Sell = () => {
   };
 
   return (
-    <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <Stepper activeStep={activeStep} alternativeLabel sx={{ width: '90%', maxWidth: '600px', mb: 4 }}>
         {steps.map((label, index) => (
           <Step key={index}>
@@ -308,11 +308,12 @@ const Sell = () => {
                 disabled={activeStep === 0}
                 onClick={handleBack}
                 sx={{ mr: 1 }}
+                style={{marginBottom:'30px'}}
               >
                 Back
               </Button>
               {activeStep < steps.length - 1 && (
-                <Button variant="contained" color="primary" onClick={handleNext}>
+                <Button variant="contained" color="primary" onClick={handleNext} style={{marginBottom:'30px'}}>
                   Next
                 </Button>
               )}

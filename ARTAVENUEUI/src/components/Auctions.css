@@ -32,3 +32,17 @@
 }
 
 
+input[type="radio"] {
+  transform: scale(1.5); 
+  width: 15px; 
+}
+
+
+input[type="radio"] + label {
+  margin-left: 10px; 
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5); 
+  margin-right: 10px; 
+}

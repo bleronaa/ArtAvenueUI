@@ -57,7 +57,7 @@ const Auctions = () => {
   return (
     <div className="auctions-container" style={{ display: 'flex' }}>
       <div className="sidebar">
-        <h3>Filter By</h3>
+
         <div className="filter-section">
           <p>Sort by Estimate</p>
           <div>
@@ -68,6 +68,7 @@ const Auctions = () => {
               value="estimate-asc"
               checked={sortBy === 'estimate-asc'}
               onChange={handleSortByChange}
+              // style={{marginRight:'10px'}}
             />
             <label htmlFor="estimate-asc">Low to High</label>
           </div>
@@ -84,20 +85,23 @@ const Auctions = () => {
           </div>
         </div>
         <div className="filter-section">
-          <p>Location</p>
-          {['Prishtine', 'Mitrovice', 'Peje', 'Gjakove','Prizren','Tirane', 'Shkoder', 'Vlore','Berat','Elbasan'].map((location) => (
-            <div key={location}>
-              <input
-                type="checkbox"
-                id={location}
-                value={location}
-                checked={locationFilters.includes(location)}
-                onChange={handleLocationFilterChange}
-              />
-              <label htmlFor={location}>{location}</label>
-            </div>
-          ))}
-        </div>
+            <p>Location</p>
+            {['Prishtine', 'Mitrovice', 'Peje', 'Gjakove','Prizren','Tirane', 'Shkoder', 'Vlore','Berat','Elbasan'].map((location) => (
+              <div key={location}>
+                <input
+                  type="checkbox"
+                  id={location}
+                  value={location}
+                  checked={locationFilters.includes(location)}
+                  onChange={handleLocationFilterChange}
+                />
+                <label htmlFor={location}>{location}</label>
+              </div>
+            ))}
+          </div>
+
+
+
         <div className="filter-section">
           <p>Category</p>
           {['Painting', 'Fine Art Prints', 'Sculpture'].map((category) => (
@@ -111,6 +115,7 @@ const Auctions = () => {
                 onChange={handleCategoryFilterChange}
               />
               <label htmlFor={category}>{category}</label>
+
             </div>
           ))}
         </div>

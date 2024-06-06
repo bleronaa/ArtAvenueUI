@@ -59,10 +59,11 @@
     color: black;
     background-color: #fff;
     padding: 8px 16px;
-    width: 140px;
+    width: 100px;
     margin-top: 10px;
     align-items: center;
-    font-size: 22px;
+    font-size: 18px;
+    height:40px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 5px;
@@ -77,8 +78,8 @@
     text-align: center;
 }
 .hrLine {
-    margin: 60px 30px;
-    width: 1450px;
+    margin: 60px 90px;
+    width: auto;
     border: 1px solid rgb(186, 186, 186);
 }
 .category {
@@ -136,6 +137,7 @@
     width: 120px;
     margin-top: 10px;
     align-items: center;
+    text-align: center;
     font-size: 22px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -160,17 +162,22 @@
  }
 .BB {
    display: flex;
-   justify-content: center; /* Center content horizontally */
+   justify-content: center; 
+   
  }
  
  .img {
-   margin-right: 20px; /* Add spacing between the two divs if needed */
+    /* margin-right: 20px; */
+   margin-right: auto;
+   margin-left: auto; 
  }
  
  .us{
    align-items: center;
    text-align: center;
-   width:450px
+   width:450px;
+   margin-left: auto;
+   margin-right: auto;
  }
  .us h2{
    margin-top: 60px;
@@ -180,49 +187,17 @@
  .us p {
    margin-top: 30px;
  }
- footer{
-   display: flex;
-   justify-content: center;
- }
- .socials{
-   display: flex;
-   text-align: center;
-   align-items: center;
-   justify-content: space-around;
-   gap:90px;
-   width:1550px;
-   height:75px;
-   margin-top: 70px;
-   background-color: whitesmoke;
- }
- .socials h2{
-   font-size:35px;
- }
- .icons{
-   display: flex;
-   justify-content: center; 
-   gap:40px;
-   font-size: 30px;
-   cursor:pointer
- }
- .footer {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
- }
  
- .additional-links {
-   display: flex;
-   justify-content: space-between;
-   max-width: 800px; 
-   margin-top: 20px; 
- }
- .header{
-   font-size: 25px;
- }
-.support{
-   margin-top: 20px;
-   margin-right: 90px;
-   line-height: 50px;
+ @media only screen and (max-width: 1200px) {
+    .BB {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        flex-wrap: wrap;
+    }
+    .img{
+        padding: 20px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+   
 }
-

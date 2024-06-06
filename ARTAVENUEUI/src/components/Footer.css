@@ -1,0 +1,82 @@
+/* Footer Container */
+.footer-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #f1f1f1;
+}
+
+/* Socials Section */
+.socials {
+  display: flex;
+  justify-content: space-around;
+  /* gap:180px; */
+  text-align: center;
+  margin-bottom: 55px;
+  width: 80%;
+  margin-top: 55px; 
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f1f1f1;
+}
+
+.socials h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.icon {
+  font-size: 30px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.icon:hover {
+  color: #0073e6;
+}
+
+/* Additional Links Section */
+.additional-links {
+  display: flex;
+  justify-content: space-between;
+  max-width: 900px;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/* Support, Legal, Contact */
+.support, .legal, .contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.support h3, .legal h3, .contact h3 {
+  margin: 15px ;
+  font-size: 20px;
+  
+}
+
+.header, .contactlink {
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.header:hover, .contactlink:hover {
+  color: #0073e6;
+}
