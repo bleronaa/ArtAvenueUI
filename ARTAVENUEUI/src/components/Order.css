@@ -1,0 +1,50 @@
+.order-container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .order-image {
+    flex: 1;
+
+
+  }
+  
+  .order-image img {
+    width: 350px;
+    height:350px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .order-details {
+    margin-top: 10px;
+  }
+  
+  .order-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .order-info h2 {
+    margin-top: 0;
+  }
+  
+  .add-to-bag-button {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    width:350px;
+  }
+  
+  .add-to-bag-button:hover {
+    background-color: black;
+    color:white;
+  }
+  

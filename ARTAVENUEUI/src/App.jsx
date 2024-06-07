@@ -8,6 +8,7 @@
   import About from './components/About';
   import Login from './components/Login';
   import SignUp from './components/SignUp';
+  import Order from './components/Order';
 
   function App() {
     return (
@@ -23,6 +24,7 @@
           <Route path="/About" element={<About/>} />
           <Route path="/Login" element={<Login/>}/>
           <Route path="/SignUp" element={<SignUp/>}/>
+          <Route path='/order' element={<Order/>}/>
         </Routes>
         {/* <Home/> */}
       </BrowserRouter>

@@ -46,3 +46,52 @@ input[type="checkbox"] {
   transform: scale(1.5); 
   margin-right: 10px; 
 }
+.search-container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  width: 250px; 
+  padding: 10px 30px 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #999;
+  cursor: pointer;
+}
+.bid-button {
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.buybutton{
+  display: flex;
+  padding: 5px;
+  gap:15px;
+  font-size:18px ;
+  color:#23448d;
+  font-weight:400;
+}
+.shopCart{
+  padding-top: 5px;
+}
