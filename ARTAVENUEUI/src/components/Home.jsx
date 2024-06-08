@@ -80,14 +80,14 @@ const Home = () => {
               <img src={image.url} alt={image.name} />
               <p>{image.text}</p>
               <p className='text'>Estimate: {image.estimate}</p>
-              <button className='bid-discoveries-button'>{image.button}</button>
+              <button className='bid-button'>{image.button}</button>
             </div>
           ))}
         </div>
         <hr className='hrLine'></hr> 
         <div className="BB">
           <div className="img">
-            <img src={bg} width={650}/>
+            <img src={bg} width={500}/>
           </div>
           <div className="us">
             <h2>Find Art You Love</h2>

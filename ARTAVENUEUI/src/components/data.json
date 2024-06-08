@@ -13,6 +13,25 @@
         "text": "Unlock Masterpieces, Bid with Passion!"
       }
     ],
+    "categories":[
+      {
+        "painting":"https://m.media-amazon.com/images/I/91y9IrbmrTL._AC_UF1000,1000_QL80_.jpg",
+        "date":"24.06.2024",
+        "location": "Prizren"
+
+      },
+      {
+        "fineArtPrints":"https://oliveetoriel.com/cdn/shop/files/This-Land-I-By-Wild-Apple---Hero-shot_grande.jpg?v=1698924029",
+        "date":"05.07.2024",
+        "location": "Tirane"
+
+      },
+      {
+        "sculpture":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpVwv3QNQw5VnY-hekTtpw0OyKUnbDzo9KTQ&s",
+        "date":"03.07.2024",
+        "location": "Prishtine"
+      }
+    ],
     "imageCarousel": [
       {
         "id": 1,

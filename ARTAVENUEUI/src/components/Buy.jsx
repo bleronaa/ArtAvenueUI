@@ -71,6 +71,18 @@ const Buy = () => {
     <div className="auctions-container">
       <div className="sidebar">
         <div className="filter-section">
+        <div className="search-container-wrapper">
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="search-input"
+              value={searchText}
+              onChange={handleSearchTextChange}
+            />
+            <AiOutlineSearch className="search-icon" onClick={handleSearch} />
+          </div>
+        </div>
           <p>Sort by Estimate</p>
           <div>
             <input
@@ -128,18 +140,7 @@ const Buy = () => {
         </div>
       </div>
       <div className="right-content">
-        <div className="search-container-wrapper">
-          <div className="search-container">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="search-input"
-              value={searchText}
-              onChange={handleSearchTextChange}
-            />
-            <AiOutlineSearch className="search-icon" onClick={handleSearch} />
-          </div>
-        </div>
+        
         <div className="image-container">
           {filteredImages.map((image) => (
             <div className="image-item" key={image.id}>
@@ -147,7 +148,7 @@ const Buy = () => {
               <p>{image.text}</p>
               <p className="text">Estimate: {image.price}</p>
               <p className="text">Location: {image.location}</p>
-              <button className="buybutton" onClick={() => handleBuyButtonClick(image)}>
+              <button className="buy-button" onClick={() => handleBuyButtonClick(image)}>
                 <AiOutlineShoppingCart />
                 Buy Now
               </button>
