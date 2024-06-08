@@ -84,9 +84,14 @@
           "estimate": "10,000-20,000 Eu",
           "price":"1800 Euro",
           "location": "Prishtine",
+          "origin":"Kosove",
           "category": "Painting",
           "button": "Bid",
-        "buybutton":"Buy"
+          "buybutton":"Buy",
+          "description": "Hand-colored copperplate engraving of three lizards by Friedrich Johann Bertuch. From Bilderbuch fur Kinder (Picture Book for Children), Weimar, 1798. Wooden frame under glass.",
+          "height":"17.75 inches/ 45.09 cm",
+          "width":"14.75 inches/ 37.47 cm"
+          
         },
         {
           "id": 2,
@@ -96,9 +101,13 @@
           "price":"2300 Euro",
           "estimate": "10,000-20,000 Eu",
           "location": "Tirane",
+          "origin":"Albania",
           "category": "Fine Art Prints",
           "buybutton":"Buy",
-          "button": "Bid"
+          "button": "Bid",
+         "description": "Hand-colored copperplate engraving of three lizards by Friedrich Johann Bertuch. From Bilderbuch fur Kinder (Picture Book for Children), Weimar, 1798. Wooden frame under glass.",
+          "height":"17.75 inches/ 45.09 cm",
+          "width":"14.75 inches/ 37.47 cm"
         },
         {
           "id": 3,
@@ -108,9 +117,13 @@
           "estimate": "8,000-9,000 Eu",
           "price":"4000 Euro",
           "location": "Shkoder",
+          "origin":"Albania",
           "category": "Sculpture",
           "buybutton":"Buy",
-          "button": "Bid"
+          "button": "Bid",
+          "description": "Hand-colored copperplate engraving of three lizards by Friedrich Johann Bertuch. From Bilderbuch fur Kinder (Picture Book for Children), Weimar, 1798. Wooden frame under glass.",
+           "height":"17.75 inches/ 45.09 cm",
+          "width":"14.75 inches/ 37.47 cm"
         },
         {
           "id": 4,
@@ -120,9 +133,13 @@
           "estimate": "10,000-25,000 Eu",
           "price":"1300 Euro",
           "location": "Gjakove",
+          "origin":"Kosove",
           "category": "Painting",
           "buybutton":"Buy",
-          "button": "Bid"
+          "button": "Bid",
+         "description": "Hand-colored copperplate engraving of three lizards by Friedrich Johann Bertuch. From Bilderbuch fur Kinder (Picture Book for Children), Weimar, 1798. Wooden frame under glass.",
+          "height":"17.75 inches/ 45.09 cm",
+          "width":"14.75 inches/ 37.47 cm"
         },
         {
           "id": 5,
@@ -131,10 +148,13 @@
           "text": "Landscape",
           "estimate": "10,000-20,000 Eu",
           "price":"2300 Euro",
-          "location": "Vlore",
+          "origin":"Albania",
           "category": "Painting",
           "buybutton":"Buy",
-          "button": "Bid"
+          "button": "Bid",
+         "description": "Hand-colored copperplate engraving of three lizards by Friedrich Johann Bertuch. From Bilderbuch fur Kinder (Picture Book for Children), Weimar, 1798. Wooden frame under glass.",
+          "height":"17.75 inches/ 45.09 cm",
+          "width":"14.75 inches/ 37.47 cm"
         },
         {
           "id": 6,
@@ -144,9 +164,13 @@
           "estimate": "10,000-20,000 Eu",
           "price":"1500 Euro",
           "location": "Prizren",
+          "origin":"Kosove",
           "category": "Fine Art Prints",
           "buybutton":"Buy",
-          "button": "Bid"
+          "button": "Bid",
+         "description": "Hand-colored copperplate engraving of three lizards by Friedrich Johann Bertuch. From Bilderbuch fur Kinder (Picture Book for Children), Weimar, 1798. Wooden frame under glass.",
+          "height":"17.75 inches/ 45.09 cm",
+          "width":"14.75 inches/ 37.47 cm"
         }
       ]
   }
