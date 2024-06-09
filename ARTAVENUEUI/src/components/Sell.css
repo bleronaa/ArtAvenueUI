@@ -1,3 +1,7 @@
+/* sell.css */
+
+
+
 .howWorks {
     text-align: center;
     margin: 90px auto;
@@ -54,3 +58,80 @@
   }
 
  
+  .category-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .category-container {
+    margin-top: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap:90px;
+  }
+  
+
+  
+  .category-box {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width:350px;
+    height:150px;
+    text-align: center;
+    align-items: center;
+  }
+  .categoryName {
+    color:black;
+    text-align: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 500px;
+    padding-top: 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .category-box:hover {
+    background-color: #f0f0f0;
+  }
+  .review-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width:350px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .review-section h6 {
+    margin-bottom: 1rem;
+  }
+  
+  .review-section .data-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .review-section .label {
+    font-weight: bold;
+  }
+  
+  .review-section .data {
+    font-style: italic;
+  }
+  
+  .review-section .button-container {
+    margin-top: 1rem;
+  }
+  
+  
+  

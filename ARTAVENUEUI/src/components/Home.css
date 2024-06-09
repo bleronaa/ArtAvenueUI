@@ -77,20 +77,28 @@
     width:250px
   }
   
-  .text {
+  .text  {
     color: rgb(99, 98, 98);
     text-align: center;
     display: flex;
     font-family:'Times New Roman', Times, serif;
   }
-  .text svg{
-    margin-top: 5px;
+  
+    .price-icon {
+      color: green;
+      margin-top: 5px;
     font-size: 20px;
     width:40px;
-    color:black;
-  }
+    padding-right: -10px;
 
-
+    }
+    .location-icon {
+      color: #23448d;
+      margin-top: 5px;
+      font-size: 20px;
+      width:40px;
+      padding-right: 21px;
+    }
   
   /* Bid Button */
   .bid-button {

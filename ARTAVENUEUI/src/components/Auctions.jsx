@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import './Auctions.css'; 
 import Footer from './Footer';
 import { AiOutlineSearch, AiOutlineShoppingCart } from 'react-icons/ai';
+import { IoIosPricetags } from "react-icons/io";
+import { IoLocationSharp } from "react-icons/io5";
 
 const Auctions = () => {
   const { NewDiscoveries } = data;
@@ -105,7 +107,7 @@ const Auctions = () => {
               checked={sortBy === 'estimate-asc'}
               onChange={handleSortByChange}
             />
-            <label htmlFor="estimate-asc">Low to High</label>
+            <label htmlFor="estimate-asc">End Date - Ascending</label>
           </div>
           <div>
             <input
@@ -116,7 +118,7 @@ const Auctions = () => {
               checked={sortBy === 'estimate-desc'}
               onChange={handleSortByChange}
             />
-            <label htmlFor="estimate-desc">High to Low</label>
+            <label htmlFor="estimate-desc">End Data - Descending</label>
           </div>
         </div>
         <div className="filter-section">
@@ -176,9 +178,8 @@ const Auctions = () => {
                 <div className="image-item" key={image.id}>
                   <img src={image.url} alt={image.name} />
                   <p>{image.text}</p>
-                  <p className="text">Estimate: {image.estimate}</p>
-                  <p className="text">Location: {image.location}</p>
-                  <p className="text">Category: {image.category}</p>
+                  <p className="text" ><IoIosPricetags className="price-icon"/> {image.price}</p>
+              <p className="text"><IoLocationSharp  className="location-icon" /> {image.location}</p>
                   <button
                     className="buy-button"
                     onClick={() => handleBuyButtonClick(image)}

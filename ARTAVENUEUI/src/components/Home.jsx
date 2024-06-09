@@ -7,6 +7,8 @@ import './Home.css';
 import data from './data.json';
 import bg from '../images/Hybrid-Homepage-RW-Prog-large.jpg';
 import Footer from './Footer';
+import { IoIosPricetags } from "react-icons/io";
+import { IoLocationSharp } from "react-icons/io5";
 
 const Home = () => {
   const { homeData, imageCarousel, NewDiscoveries } = data;
@@ -67,7 +69,8 @@ const Home = () => {
             <div className="image-item" key={image.id}>
               <img src={image.url} alt={image.name} />
               <h2>{image.text}</h2>
-              <p className='text'>Estimate: {image.estimate}</p>
+              <p className="text" ><IoIosPricetags className="price-icon"/> {image.price}</p>
+              <p className="text"><IoLocationSharp  className="location-icon" /> {image.location}</p>
               <button className='bid-button' onClick={handleBidButtonClick}>{image.button}</button>
             </div>
           ))}
@@ -79,7 +82,8 @@ const Home = () => {
             <div className="discoveries-item" key={image.id}>
               <img src={image.url} alt={image.name} />
               <h2>{image.text}</h2>
-              <p className='text'>Estimate: {image.estimate}</p>
+            <p className="text" ><IoIosPricetags className="price-icon"/> {image.price}</p>
+              <p className="text"><IoLocationSharp  className="location-icon" /> {image.location}</p>
               <button className='bid-button'>{image.button}</button>
             </div>
           ))}

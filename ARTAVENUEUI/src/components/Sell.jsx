@@ -71,20 +71,18 @@ const Sell = () => {
     switch (step) {
       case 0:
         return (
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <Typography variant="h6" gutterBottom>Choose your category</Typography>
-            <List component={Paper} sx={{ width: '300px' }}>
-              {categories.map((category, index) => (
-                <ListItem button key={index} sx={{ textAlign: 'center' }} onClick={() => handleCategoryClick(category)}>
-                  <ListItemText primary={category} />
-                </ListItem>
-              ))}
-            </List>
-          </Box>
+          <div className="category-container">
+          {categories.map((category, index) => (
+            <Box key={index} className="category-box" onClick={() => handleCategoryClick(category)}>
+              <h5 className='categoryName'>{category}</h5>
+            </Box>
+          ))}
+        </div>
+        
         );
         case 1:
           return (
-            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
+            <Box>
               <Typography variant="h6" gutterBottom>Tell us about your item</Typography>
               <Typography variant="h4" gutterBottom>General</Typography>
               <Typography variant="h6" gutterBottom>Item's country of Origin</Typography>
@@ -253,31 +251,81 @@ const Sell = () => {
               </Box>
             );
           
-      case 3:
-        return (
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left', width: '100%' }}>
-          <Typography variant="h6" gutterBottom>Review information</Typography>
-          <Typography variant="body1">Category: {formData.category}</Typography>
-          <Typography variant="body1">Country: {formData.country}</Typography>
-          <Typography variant="body1">Artist: {formData.artist}</Typography>
-          <Typography variant="body1">Title of Work: {formData.titleOfWork}</Typography>
-          <Typography variant="body1">Measurement Unit: {formData.measurementUnit}</Typography>
-          <Typography variant="body1">Framed Height: {formData.framedHeight}</Typography>
-          <Typography variant="body1">Framed Width: {formData.framedWidth}</Typography>
-          <Typography variant="body1">Framed Depth: {formData.framedDepth}</Typography>
-          <Typography variant="body1">Price Paid: {formData.pricePaid}</Typography>
-          <Typography variant="body1">Currency: {formData.currency}</Typography>
-          <Typography variant="body1">Year Paid: {formData.yearPaid}</Typography>
-          <Box sx={{ display: 'flex', marginTop: '1rem' }}>
-            <Button variant="contained" color="primary" onClick={handleReset} sx={{ marginRight: '1rem' }}>Reset</Button>
-            <Button variant="contained" color="primary" onClick={handleReviewSubmit}>Finish</Button>
-          </Box>
-        </Box>
-        );
-      default:
-        return <Typography>Unknown step</Typography>;
-    }
-  };
+            case 3:
+              return (
+                <Box className="review-section">
+                    <Typography variant="h6" gutterBottom>Review information</Typography>
+                    <div className="data-row">
+                    <Typography variant="body1" className="label">Category:</Typography>
+                    <Typography variant="body1" className="data">{formData.category}</Typography>
+                  </div>
+                  
+                <div className="data-row">
+
+                <Typography variant="body1" className="label">Country:</Typography>
+                <Typography variant="body1" className="data">{formData.country}</Typography>
+                </div>
+                <div className="data-row">
+
+                <Typography variant="body1" className="label">Artist:</Typography>
+                <Typography variant="body1" className="data">{formData.artist}</Typography>
+                </div>
+                <div className="data-row">
+
+                <Typography variant="body1" className="label">Title of Work:</Typography>
+                <Typography variant="body1" className="data">{formData.titleOfWork}</Typography>
+                </div>
+                <div className="data-row">
+
+                <Typography variant="body1" className="label">Measurement Unit:</Typography>
+                <Typography variant="body1" className="data">{formData.measurementUnit}</Typography>
+                </div>
+                <div className="data-row">
+
+                <Typography variant="body1" className="label">Framed Height:</Typography>
+                <Typography variant="body1" className="data">{formData.framedHeight}</Typography>
+                </div>
+                <div className="data-row">
+
+                <Typography variant="body1" className="label">Framed Width:</Typography>
+                <Typography variant="body1" className="data">{formData.framedWidth}</Typography>
+                </div>
+                <div className="data-row">
+                
+                <Typography variant="body1" className="label">Framed Depth:</Typography>
+                <Typography variant="body1" className="data">{formData.framedDepth}</Typography>
+                </div>
+                <div className="data-row">
+
+                <Typography variant="body1" className="label">Price Paid:</Typography>
+                <Typography variant="body1" className="data">{formData.pricePaid}</Typography>
+                </div>
+                <div className="data-row">
+
+                <Typography variant="body1" className="label">Currency:</Typography>
+                <Typography variant="body1" className="data">{formData.currency}</Typography>
+                </div>
+                <div className="data-row">
+
+                <Typography variant="body1" className="label">Year Paid:</Typography>
+                <Typography variant="body1" className="data">{formData.yearPaid}</Typography>
+                </div>
+               
+                <div className="button-container">
+                  <Button variant="contained" color="primary" onClick={handleReset} sx={{ marginRight: '1rem' }}>Reset</Button>
+                  <Button variant="contained" color="primary" onClick={handleReviewSubmit}>Finish</Button>
+                </div>
+              </Box>
+              
+              );
+            default:
+              return <Typography>Unknown step</Typography>;
+          }
+        };
+      
+        const handleReviewSubmit = () => {
+      
+        };
 
   return (
     <div>
