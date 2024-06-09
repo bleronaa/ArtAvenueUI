@@ -1,26 +1,17 @@
-import React from 'react';
-import {
-  Stepper,
-  Step,
-  StepLabel,
-  Button,
-  Typography,
-  Box,
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Paper,
-  List,
-  ListItem,
+import React, { useState } from 'react';
+import { IoSearchOutline } from "react-icons/io5";
+import { RiImageAddFill } from "react-icons/ri";
+import { MdDone } from "react-icons/md";
+import {Stepper, Step, StepLabel, Button, Typography, Box, TextField,
+  FormControl,InputLabel,Select,MenuItem,Paper,List,ListItem,
   ListItemText,
 } from '@mui/material';
-
+import './Sell.css';
 
 const Sell = () => {
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [formData, setFormData] = React.useState({
+  const [activeStep, setActiveStep] = useState(0);
+  const [showHowWorks, setShowHowWorks] = useState(true);
+  const [formData, setFormData] = useState({
     category: '',
     country: '',
     artist: '',
@@ -39,13 +30,20 @@ const Sell = () => {
   const categories = ['Paintings', 'Fine Art Prints', 'Sculpture'];
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    if (showHowWorks && activeStep === 0) {
+      setShowHowWorks(false);
+    } else {
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    if (activeStep === 0 && !showHowWorks) {
+      setShowHowWorks(true); 
+    } else {
+      setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    }
   };
-
   const handleReset = () => {
     setActiveStep(0);
     setFormData({
@@ -61,6 +59,7 @@ const Sell = () => {
       currency: '',
       yearPaid: '',
     });
+    setShowHowWorks(true);
   };
 
   const handleCategoryClick = (category) => {
@@ -280,50 +279,74 @@ const Sell = () => {
     }
   };
 
-  const handleReviewSubmit = () => {
-
-  };
-
   return (
-    <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-      <Stepper activeStep={activeStep} alternativeLabel sx={{ width: '90%', maxWidth: '600px', mb: 4 }}>
-        {steps.map((label, index) => (
-          <Step key={index}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
-      <div>
-        {activeStep === steps.length ? (
-          <div>
-            <Typography sx={{ mt: 2, mb: 1 }}>Review and confirm your submission.</Typography>
-            {getStepContent(activeStep)}
+    <div>
+      {showHowWorks && (
+        <div className='howWorks'>
+          <h1>How It Works</h1>
+          <p className='disclaimer'>Disclaimer: Preliminary estimates may be subject to change upon inspection of the item.</p>
+          <div className='steps'>
+            <div className='step'>
+              <IoSearchOutline />
+              <h2>Tell us about your Item</h2>
+              <p>Add dimensions, history and any documentation</p>
+            </div>
+            <div className='step'>
+              <RiImageAddFill />
+              <h2>Upload Photos</h2>
+              <p>Take front and back images of your item</p>
+            </div>
+            <div className='step'>
+              <MdDone />
+              <h2>Review and Submit</h2>
+              <p>All set! Our specialists will review your submission</p>
+            </div>
           </div>
-        ) : (
+          <button className='bid-button next' onClick={handleNext}>Next</button>
+        </div>
+      )}
+      {!showHowWorks && (
+        <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          <Stepper activeStep={activeStep} alternativeLabel sx={{ width: '90%', maxWidth: '600px', mb: 4 }}>
+            {steps.map((label, index) => (
+              <Step key={index}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
           <div>
-            <Typography sx={{ mt: 2, mb: 1 }}>{getStepContent(activeStep)}</Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-              <Button
-                color="inherit"
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                sx={{ mr: 1 }}
-                style={{marginBottom:'30px'}}
-              >
-                Back
-              </Button>
-              {activeStep < steps.length - 1 && (
-                <Button variant="contained" color="primary" onClick={handleNext} style={{marginBottom:'30px'}}>
-                  Next
-                </Button>
-              )}
-            </Box>
-          </div>
-        )}
-      </div>
-    </Box>
-  );
-};
-
-
+            {activeStep === steps.length ? (
+              <div>
+                <Typography sx={{ mt: 2, mb: 1 }}>Review and confirm your submission.</Typography>
+                {getStepContent(activeStep)}
+              </div>
+            ) : (
+              <div>
+                <Typography sx={{ mt: 2, mb: 1 }}>{getStepContent(activeStep)}</Typography>
+                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+                  <Button
+                    color="inherit"
+                    disabled={activeStep === 0}
+                    onClick={handleBack}
+                    sx={{ mr: 1 }}
+                    style={{marginBottom:'30px'}}
+                  >
+                    Back
+                  </Button>
+                  {activeStep < steps.length - 1 && (
+                                        <Button variant="contained" color="primary" onClick={handleNext} style={{marginBottom:'30px'}}>
+                                        Next
+                                      </Button>
+                                    )}
+                                  </Box>
+                                </div>
+                              )}
+                            </div>
+                          </Box>
+                        )}
+                      </div>
+                    );
+                  };
+                  
 export default Sell;
+                  

@@ -17,9 +17,12 @@ const Order = () => {
             <h1>Details</h1>
             <h2>Description</h2>
             <p>{image.description || ''}</p>
+          <hr className='hrline'/>
+
             <h2>Dimensions</h2>
             <p>Height: {image.height || ''}</p>
             <p>Width: {image.width || ''}</p>
+          <hr className='hrline'/>
             <h2>Country of Origin</h2>
             <p>{image.origin || ''}</p>
           </div>
@@ -53,7 +56,9 @@ const Order = () => {
             </div>
           </div>
         </div>
-      </div>
+  </div>
+  
+    
       <Footer/>
     </>
   );

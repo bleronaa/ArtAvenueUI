@@ -66,7 +66,7 @@ const Home = () => {
           {filteredImages.map(image => (
             <div className="image-item" key={image.id}>
               <img src={image.url} alt={image.name} />
-              <p>{image.text}</p>
+              <h2>{image.text}</h2>
               <p className='text'>Estimate: {image.estimate}</p>
               <button className='bid-button' onClick={handleBidButtonClick}>{image.button}</button>
             </div>
@@ -78,7 +78,7 @@ const Home = () => {
           {NewDiscoveries.map(image => (
             <div className="discoveries-item" key={image.id}>
               <img src={image.url} alt={image.name} />
-              <p>{image.text}</p>
+              <h2>{image.text}</h2>
               <p className='text'>Estimate: {image.estimate}</p>
               <button className='bid-button'>{image.button}</button>
             </div>

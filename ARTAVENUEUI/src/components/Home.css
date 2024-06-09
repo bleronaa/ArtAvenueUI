@@ -16,11 +16,11 @@
   }
   
   .title {
-    margin-top: 40px;
+    margin-top: 30px;
     margin-left: 70px;
     font-weight: bold;
     font-size: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 
   }
   
@@ -57,22 +57,40 @@
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+    gap:9px
   }
   
   .image-item img {
-    width: 250px;
-    height: 300px;
-    
+     width: 200px;
+    height: 250px;
+    border-radius: 2%;
   }
   
   .image-item p {
     padding: 2px;
   }
+  .image-item h2{
+    padding: 2px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    width:250px
+  }
   
   .text {
-    color: rgb(67, 66, 66);
+    color: rgb(99, 98, 98);
     text-align: center;
+    display: flex;
+    font-family:'Times New Roman', Times, serif;
   }
+  .text svg{
+    margin-top: 5px;
+    font-size: 20px;
+    width:40px;
+    color:black;
+  }
+
+
   
   /* Bid Button */
   .bid-button {
@@ -104,9 +122,9 @@
   
   /* Horizontal Line */
   .hrLine {
-    margin: 60px auto;
+    margin: 30px auto;
     width: auto;
-    border: 1px solid rgb(186, 186, 186);
+    border: 1px solid rgb(45, 43, 43);
   }
   
   /* Category */
@@ -156,11 +174,19 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: calc(25% - 20px); /* Adjusting the width for 4 items in a row, considering padding */
+    box-sizing: border-box;
   }
   
   .discoveries-item img {
     width: 200px;
     height: 250px;
+    border-radius: 2%;
+  }
+  .discoveries-item h2{
+    font-weight: 600;
+    margin-top: 5px;
+    font-size: 18px;
   }
   
   /* Bid Discoveries Button */
@@ -265,5 +291,19 @@
     left: 35%;
     border-radius: 5px;
     max-width: 950px;
+    }
+    .discoveries-item {
+      width: 100%; /* 1 item in a row for extra small screens */
+    }
+  }
+  @media (max-width: 1200px) {
+    .discoveries-item {
+      width: calc(33.33% - 20px); /* 3 items in a row for medium screens */
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .discoveries-item {
+      width: calc(50% - 20px); /* 2 items in a row for small screens */
     }
   }

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import data from './data.json';
 import './Auctions.css';
+import { IoIosPricetags } from "react-icons/io";
+import { IoLocationSharp } from "react-icons/io5";
 import { AiOutlineSearch, AiOutlineShoppingCart } from 'react-icons/ai';
 
 const Buy = () => {
@@ -145,9 +147,9 @@ const Buy = () => {
           {filteredImages.map((image) => (
             <div className="image-item" key={image.id}>
               <img src={image.url} alt={image.name} />
-              <p>{image.text}</p>
-              <p className="text">Estimate: {image.price}</p>
-              <p className="text">Location: {image.location}</p>
+              <h2>{image.text}</h2>
+              <p className="text"><IoIosPricetags /> {image.price}</p>
+              <p className="text"><IoLocationSharp /> {image.location}</p>
               <button className="buy-button" onClick={() => handleBuyButtonClick(image)}>
                 <AiOutlineShoppingCart />
                 Buy Now

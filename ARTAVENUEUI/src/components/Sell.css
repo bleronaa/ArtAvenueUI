@@ -1,0 +1,56 @@
+.howWorks {
+    text-align: center;
+    margin: 90px auto;
+  }
+  
+  .howWorks h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .disclaimer {
+    font-style: italic;
+    color: gray;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  
+  .steps {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 90px;
+  }
+  
+  .step {
+    flex: 1;
+    max-width: 300px;
+    margin: 30px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+  .step svg{
+    font-size:50px;
+    align-items: center;
+    text-align: center;
+    color:#23448d;
+  }
+  
+  .step h2 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .step p {
+    font-size: 16px;
+    color: gray;
+  }
+  .bid-button.next{
+  margin: 10px auto;
+  }
+
+ 

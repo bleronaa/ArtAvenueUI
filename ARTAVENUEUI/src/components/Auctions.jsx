@@ -180,7 +180,7 @@ const Auctions = () => {
                   <p className="text">Location: {image.location}</p>
                   <p className="text">Category: {image.category}</p>
                   <button
-                    className="bid-button"
+                    className="buy-button"
                     onClick={() => handleBuyButtonClick(image)}
                   >
                     <AiOutlineShoppingCart />
