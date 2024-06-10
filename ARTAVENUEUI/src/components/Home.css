@@ -16,7 +16,7 @@
   }
   
   .title {
-    margin-top: 30px;
+    margin-top: 60px;
     margin-left: 70px;
     font-weight: bold;
     font-size: 30px;
@@ -76,30 +76,79 @@
     text-align: center;
     width:250px
   }
-  
+  .desc{
+    width:200px;
+    font-family:'Times New Roman', Times, serif;
+
+  }
   .text  {
     color: rgb(99, 98, 98);
     text-align: center;
     display: flex;
     font-family:'Times New Roman', Times, serif;
+    font-size:16px;
   }
-  
+  .iconss{
+    display: flex;
+    flex-direction: column;
+  }
     .price-icon {
-      color: green;
-      margin-top: 5px;
-    font-size: 20px;
-    width:40px;
-    padding-right: -10px;
-
-    }
-    .location-icon {
-      color: #23448d;
+      color: rgb(6, 60, 6);
       margin-top: 5px;
       font-size: 20px;
       width:40px;
-      padding-right: 21px;
     }
-  
+    .location-icon {
+      color: #23448d;
+      margin-top: 1px;
+      font-size: 20px;
+      width:40px;
+    }
+  .content{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #f0f0e5;
+  }
+  .about-auction-container{
+    flex-wrap: wrap;
+    justify-content: space-between !important;
+    margin-top: 4rem !important;
+    padding: 5rem ;
+    row-gap: 3rem
+  }
+    .about-auction{
+      margin-top: -40px;
+      max-width: 275px;
+      width: 100%;
+      order: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    font: inherit;
+    font-family:'Times New Roman', Times, serif;
+    margin: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    vertical-align: initial;
+  }
+  .about-auction span {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.about-auction span svg {
+  font-size: 35px;
+}
+  .about-auction h3{
+  color: black;
+  font-size: 18px;
+  font-weight: 600 !important;
+  height: 52.76px;
+  margin-bottom: 20px !important;
+  padding: 20px;
+  }
   /* Bid Button */
   .bid-button {
     border: 2px solid rgb(35, 35, 35);
@@ -182,20 +231,30 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: calc(25% - 20px); /* Adjusting the width for 4 items in a row, considering padding */
+    width: calc(25% - 20px); 
     box-sizing: border-box;
+    margin: 5px; 
+    transition: background-color 0.3s ease; 
   }
   
   .discoveries-item img {
     width: 200px;
     height: 250px;
     border-radius: 2%;
+
   }
   .discoveries-item h2{
     font-weight: 600;
     margin-top: 5px;
     font-size: 18px;
   }
+  .discoveries-item:hover {
+    background-color: #f5f5f5; /* Change background color on hover */
+    cursor: pointer; 
+  }
+
+
+  
   
   /* Bid Discoveries Button */
   .bid-discoveries-button {
@@ -289,7 +348,7 @@
     }
 
     .title{
-    margin-top: 1px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     font-size: 30px;
@@ -303,6 +362,23 @@
     .discoveries-item {
       width: 100%; /* 1 item in a row for extra small screens */
     }
+    
+    .content{
+      margin-left: auto ;
+      margin-right: auto ;
+      padding: 0;
+      width: 100%;
+      
+    }
+    .about-auction-container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 4rem !important;
+      padding: 5rem ;
+      row-gap: 3rem
+    }
+    
   }
   @media (max-width: 1200px) {
     .discoveries-item {
@@ -314,4 +390,8 @@
     .discoveries-item {
       width: calc(50% - 20px); /* 2 items in a row for small screens */
     }
+    .about-auction{
+      margin-left: auto;
+      margin-right: auto;
+  }
   }

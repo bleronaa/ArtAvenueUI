@@ -356,7 +356,10 @@ const Sell = () => {
       )}
       {!showHowWorks && (
         <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <h1 className='choose-Category'>Choose your category</h1>
+
           <Stepper activeStep={activeStep} alternativeLabel sx={{ width: '90%', maxWidth: '600px', mb: 4 }}>
+            
             {steps.map((label, index) => (
               <Step key={index}>
                 <StepLabel>{label}</StepLabel>

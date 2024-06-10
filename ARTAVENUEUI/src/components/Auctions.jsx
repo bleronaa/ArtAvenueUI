@@ -11,10 +11,52 @@ import { IoLocationSharp } from "react-icons/io5";
 const Auctions = () => {
   const { NewDiscoveries } = data;
   const initialImages = {
-    Painting: 'https://m.media-amazon.com/images/I/91y9IrbmrTL._AC_UF1000,1000_QL80_.jpg',
-    'Fine Art Prints': 'https://oliveetoriel.com/cdn/shop/files/This-Land-I-By-Wild-Apple---Hero-shot_grande.jpg?v=1698924029',
-    Sculpture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpVwv3QNQw5VnY-hekTtpw0OyKUnbDzo9KTQ&s',
+    Painting: {
+      url: 'https://m.media-amazon.com/images/I/91y9IrbmrTL._AC_UF1000,1000_QL80_.jpg',
+      openingDate: '2024-06-01',
+      closingDate: '2024-06-10'
+    },
+    'Fine Art Prints': {
+      url: 'https://oliveetoriel.com/cdn/shop/files/This-Land-I-By-Wild-Apple---Hero-shot_grande.jpg?v=1698924029',
+      openingDate: '2024-06-05',
+      closingDate: '2024-06-15'
+    },
+    Sculpture: {
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpVwv3QNQw5VnY-hekTtpw0OyKUnbDzo9KTQ&s',
+      openingDate: '2024-06-10',
+      closingDate: '2024-06-20'
+    },
+    Impressionism: {
+      url: 'https://i.ebayimg.com/images/g/qKQAAOSwI~xj6dlw/s-l400.jpg',
+      openingDate: '2024-06-15',
+      closingDate: '2024-06-25'
+    }
   };
+  
+
+  const openedAuctions = {
+    Painting: {
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQglCPMHz0-R8N7D5M93BZvrzGRqTp_Ayte-1yuN9drU4kWPSmbhvOA3bfmhCPcJMTB1as&usqp=CAU',
+      openingDate: '2024-05-24',
+      closingDate: '2024-05-30'
+    },
+    'Fine Art Prints': {
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo1xyEp8uf9l7XeCfn2eviYUOxg_oN3TZsAQ&s',
+      openingDate: '2024-03-26',
+      closingDate: '2024-04-01'
+    },
+    Sculpture: {
+      url: 'https://i.pinimg.com/1200x/de/44/f6/de44f69f995ec5dd4ac0135cf2cc3cd1.jpg',
+      openingDate: '2024-02-28',
+      closingDate: '2024-03-08'
+    },
+    Impressionism: {
+      url: 'https://cdn-jhegd.nitrocdn.com/lsIiAvESKdETkzrkABPHLxMSFnyYzzqR/assets/images/optimized/rev-8743ff4/robertlynnelson.com/wp-content/uploads/2021/12/Rush-Hour-24x36-OAC-purple-jacaranda-landscape-art-kula-maui-hawaii-impressionism.jpg',
+      openingDate: '2024-01-30',
+      closingDate: '2024-02-15'
+    }
+  };
+  
   const [visibleCategory, setVisibleCategory] = useState('');
   const [sortBy, setSortBy] = useState('');
   const [locationFilters, setLocationFilters] = useState([]);
@@ -162,50 +204,122 @@ const Auctions = () => {
             ))}
           </div>
         </div>
+
+
+
+
         <div className="right-content">
-          <div className="image-container">
-            {['Painting', 'Fine Art Prints', 'Sculpture'].map((category) => (
-              <div key={category} className="category-section">
-                {!visibleCategory || visibleCategory === category ? (
+        <div className="image-container">
+          <h1 className='auctions-type'>Opened  Auctions</h1>
+
+          {['Painting', 'Fine Art Prints', 'Sculpture', 'Impressionism'].map((category) => (
+  <div key={category} className="category-section">
+    {!visibleCategory || visibleCategory === category ? (
+      <div className="image-item">
+        <img src={openedAuctions[category].url} alt={category} />
+        <span className='upcoming'>Opened AUCTIONS</span>
+        <p className="opening-date">Opening Date: {openedAuctions[category].openingDate}</p> 
+        <p className="close-date">Close Date: {openedAuctions[category].closingDate}</p> 
+
+
+        <p className="category-name">{category}</p>
+        <button
+          className="bid-button"
+          onClick={() => handleCategoryClick(category)}
+        >
+          {visibleCategory === category ? 'Hide' : 'Open'}
+        </button>
+        {visibleCategory === category && (
+          <div className="horizontal-scroll">
+            {filteredImages
+              .filter((image) => image.category === category && image.auction === 'opened') 
+              .map((image) => (
+                <div className="category-section" key={image.id}> 
                   <div className="image-item">
-                    <img src={initialImages[category]} alt={category} />
-                    <span className='upcoming'>UPCOMING AUCTIONS</span>
-                    <p className="category-name">{category}</p>
+                    <img src={image.url} alt={image.name} />
+                    <p>{image.text}</p>
+                    <p className="text"> {image.description}</p>
+                    <div className='iconss'>
+
+                    <p className="text"><IoIosPricetags className="price-icon" /> {image.price}</p>
+                    <p className="text"><IoLocationSharp className="location-icon" /> {image.location}</p>
+                </div>
                     <button
-                      className="bid-button"
-                      onClick={() => handleCategoryClick(category)}
+                      className="buy-button"
+                      onClick={() => handleBuyButtonClick(image)}
                     >
-                      {visibleCategory === category ? 'Hide' : 'Open'}
+                      <AiOutlineShoppingCart />
+                      Buy Now
                     </button>
-                    {visibleCategory === category && (
-                     <div className="horizontal-scroll">
-                     {filteredImages
-                       .filter((image) => image.category === category)
-                       .map((image) => (
-                         <div className="category-section" key={image.id}> 
-                           <div className="image-item">
-                             <img src={image.url} alt={image.name} />
-                             <p>{image.text}</p>
-                             <p className="text"><IoIosPricetags className="price-icon" /> {image.price}</p>
-                             <p className="text"><IoLocationSharp className="location-icon" /> {image.location}</p>
-                             <button
-                               className="buy-button"
-                               onClick={() => handleBuyButtonClick(image)}
-                             >
-                               <AiOutlineShoppingCart />
-                               Buy Now
-                             </button>
-                           </div>
-                         </div>
-                       ))}
-                   </div>
-                    )}
                   </div>
-                ) : null}
+                </div>
+              ))}
+          </div>
+        )}
+      </div>
+    ) : null}
+  </div>
+))}
+
+</div>
+       
+
+
+          <div className="image-container">
+          <h1 className='auctions-type'>Upcoming  Auctions</h1>
+
+          {['Painting', 'Fine Art Prints', 'Sculpture', 'Impressionism'].map((category) => (
+  <div key={category} className="category-section">
+    {!visibleCategory || visibleCategory === category ? (
+      <div className="image-item">
+        <img src={initialImages[category].url} alt={category} />
+        <span className='upcoming'>UPCOMING AUCTIONS</span>
+        <p className="opening-date">Opening Date: {initialImages[category].openingDate}</p> 
+        <p className="close-date">Close Date: {initialImages[category].closingDate}</p> 
+        <p className="category-name">{category}</p>
+        <button
+          className="bid-button"
+          onClick={() => handleCategoryClick(category)}
+        >
+          {visibleCategory === category ? 'Hide' : 'Open'}
+        </button>
+        {visibleCategory === category && (
+         <div className="horizontal-scroll">
+         {filteredImages
+         .filter((image) => image.category === category && image.auction === 'opened') 
+          .map((image) => (
+             <div className="category-section" key={image.id}> 
+               <div className="image-item">
+                 <img src={image.url} alt={image.name} />
+                 <p className="text"> {image.description}</p>
+            <div className='iconss'>
+
+                 <p className="text"><IoIosPricetags className="price-icon" /> {image.price}</p>
+                 <p className="text"><IoLocationSharp className="location-icon" /> {image.location}</p>
               </div>
-            ))}
+                 <button
+                   className="buy-button"
+                   onClick={() => handleBuyButtonClick(image)}
+                 >
+                   <AiOutlineShoppingCart />
+                   Buy Now
+                 </button>
+               </div>
+             </div>
+           ))}
+       </div>
+        )}
+      </div>
+    ) : null}
+  </div>
+))}
+
           </div>
         </div>
+
+
+        
+        
       </div>
       <Footer />
     </>

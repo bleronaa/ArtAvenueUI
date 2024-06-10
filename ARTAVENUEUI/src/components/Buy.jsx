@@ -158,8 +158,11 @@ const Buy = () => {
             <div className="image-item" key={image.id}>
               <img src={image.url} alt={image.name} />
               <h2>{image.text}</h2>
+            <div className='iconss'>
+
               <p className="text" ><IoIosPricetags className="price-icon"/> {image.price}</p>
               <p className="text"><IoLocationSharp  className="location-icon" /> {image.location}</p>
+          </div>
               <button className="buy-button" onClick={() => handleBuyButtonClick(image)}>
                 <AiOutlineShoppingCart />
                 Buy Now

@@ -9,6 +9,10 @@ import bg from '../images/Hybrid-Homepage-RW-Prog-large.jpg';
 import Footer from './Footer';
 import { IoIosPricetags } from "react-icons/io";
 import { IoLocationSharp } from "react-icons/io5";
+import { BsEasel2 } from "react-icons/bs";
+import { TbCurrencyDollar } from "react-icons/tb";
+import { RiAuctionLine } from "react-icons/ri";
+import { FiTruck } from "react-icons/fi";
 
 const Home = () => {
   const { homeData, imageCarousel, NewDiscoveries } = data;
@@ -69,21 +73,59 @@ const Home = () => {
             <div className="image-item" key={image.id}>
               <img src={image.url} alt={image.name} />
               <h2>{image.text}</h2>
-              <p className="text" ><IoIosPricetags className="price-icon"/> {image.price}</p>
+            <div className='iconss'>
+             
+              <p className="text" ><IoIosPricetags className="price-icon"/> {image.estimate}</p>
               <p className="text"><IoLocationSharp  className="location-icon" /> {image.location}</p>
+           </div>
               <button className='bid-button' onClick={handleBidButtonClick}>{image.button}</button>
             </div>
           ))}
         </div>
         <hr className='hrLine'></hr>
+
+        <div className=" content about-auction-container">
+          <div className='about-auction'>
+            <span>
+            <BsEasel2 />
+
+            </span>
+            <h3>Various options</h3>
+            <p>Lots of different artwork every week. Various paintings, sculptures according to different categories</p>
+          </div>
+          <div className='about-auction'>
+            <span>
+            <TbCurrencyDollar />
+            </span>
+            <h3>Reasonable prices</h3>
+            <p>There are no additional fees. Reasonable and clear pricing. You only pay for the art not including shipping.</p>
+          </div>
+          <div className='about-auction'>
+            <span>
+            <RiAuctionLine />
+            </span>
+            <h3>Art auctions</h3>
+            <p>Fast and free registration. Easy to use website.Auctions available online 24 hours a day.</p>
+          </div>
+          <div className='about-auction'>
+            <span>
+            <FiTruck />
+            </span>
+            <h3>Transport</h3>
+            <p>Reliable carrier. It doesn't matter where you are, as long as you like the artwork, the order will come to you.</p>
+          </div>
+        </div>
         <h2 className='title'>New Arrivals</h2>
         <div className="discoveries">
           {NewDiscoveries.map(image => (
             <div className="discoveries-item" key={image.id}>
               <img src={image.url} alt={image.name} />
               <h2>{image.text}</h2>
-            <p className="text" ><IoIosPricetags className="price-icon"/> {image.price}</p>
+              <p className="desc"> {image.description}</p>
+            <div className='iconss'>
+            <p className="text" ><IoIosPricetags className="price-icon"/> {image.estimate}</p>
               <p className="text"><IoLocationSharp  className="location-icon" /> {image.location}</p>
+            </div>
               <button className='bid-button'>{image.button}</button>
             </div>
           ))}

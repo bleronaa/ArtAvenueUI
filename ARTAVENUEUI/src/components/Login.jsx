@@ -1,32 +1,26 @@
 import React, { useState } from 'react';
-import {Link, useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
-import banner from '../images/banner.png';
 import logo from '../images/imglogo-removebg-preview (2).png';
 import SignUp from './SignUp';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate hook for navigation
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Your login logic here
     console.log('Username:', username);
     console.log('Password:', password);
-
-    // Assuming the login is successful, navigate to the home page
     navigate('/');
   };
 
   return (
-    <div>
-      <div className="header">
-        <img src={logo} alt='logo'/>
-      </div>
+    <div className="login-page">
+      
       <div className="login-container">
-        <h2>Welcome <br></br>Back!</h2>
+        <h2>Welcome Back!</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">  
             <label>Username</label>      
@@ -54,7 +48,6 @@ const Login = () => {
             <a href="#">Forgot your password?</a>
           </div>
         </form>
-        <img src={banner} alt='banner' className='banner'/>
       </div>
     </div>
   );

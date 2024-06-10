@@ -43,7 +43,8 @@
         "button": "Bid",
         "buybutton":"Buy",
         "location": "Prishtine",
-        "category": "Painting"
+        "category": "Painting",
+        "artist":"Blerona Tmava"
       },
       {
         "id": 2,
@@ -55,7 +56,9 @@
         "button": "Bid",
         "buybutton":"Buy",
         "location": "Tirane",
-        "category": "Painting"
+        "category": "Painting",
+        "artist":"Blerona Tmava"
+
       },
       {
         "id": 3,
@@ -67,7 +70,9 @@
         "button": "Bid",
         "buybutton":"Buy",
         "location": "Peje",
-        "category": "Fine Art Prints"
+        "category": "Fine Art Prints",
+        "artist":"Blerona Tmava"
+
       },
       {
         "id": 4,
@@ -79,7 +84,9 @@
         "button": "Bid",
         "buybutton":"Buy",
         "location": "Gjakove",
-        "category": "Painting"
+        "category": "Painting",
+        "artist":"Blerona Tmava"
+
       },
       {
         "id": 5,
@@ -91,7 +98,9 @@
         "button": "Bid",
         "buybutton":"Buy",
         "location": "Shkoder",
-        "category": "Sculpture"
+        "category": "Sculpture",
+        "artist":"Blerona Tmava"
+
       }
     ],
     "NewDiscoveries": [
@@ -107,9 +116,10 @@
           "category": "Painting",
           "button": "Bid",
           "buybutton":"Buy",
-          "description": "Hand-colored copperplate engraving of three lizards by Friedrich Johann Bertuch. From Bilderbuch fur Kinder (Picture Book for Children), Weimar, 1798. Wooden frame under glass.",
+          "description": "Blackstairs Sunset depicts the stunning beauty of the Blackstairs Mountains bathed in the warm hues.",
           "height":"17.75 inches/ 45.09 cm",
-          "width":"14.75 inches/ 37.47 cm"
+          "width":"14.75 inches/ 37.47 cm",
+          "auction":"opened"
           
         },
         {
@@ -124,9 +134,11 @@
           "category": "Fine Art Prints",
           "buybutton":"Buy",
           "button": "Bid",
-         "description": "Hand-colored copperplate engraving of three lizards by Friedrich Johann Bertuch. From Bilderbuch fur Kinder (Picture Book for Children), Weimar, 1798. Wooden frame under glass.",
+         "description": "Ocean Painting portrays the vast expanse of the ocean, capturing its ever-changing moods and colors. ",
           "height":"17.75 inches/ 45.09 cm",
-          "width":"14.75 inches/ 37.47 cm"
+          "width":"14.75 inches/ 37.47 cm",
+          "auction":"opened"
+
         },
         {
           "id": 3,
@@ -140,9 +152,11 @@
           "category": "Sculpture",
           "buybutton":"Buy",
           "button": "Bid",
-          "description": "Hand-colored copperplate engraving of three lizards by Friedrich Johann Bertuch. From Bilderbuch fur Kinder (Picture Book for Children), Weimar, 1798. Wooden frame under glass.",
+          "description": "A violin is a string instrument known for its rich and expressive sound.It typically has four strings stretched.  ",
            "height":"17.75 inches/ 45.09 cm",
-          "width":"14.75 inches/ 37.47 cm"
+          "width":"14.75 inches/ 37.47 cm",
+          "auction":"upcoming"
+
         },
         {
           "id": 4,
@@ -156,9 +170,11 @@
           "category": "Painting",
           "buybutton":"Buy",
           "button": "Bid",
-         "description": "Hand-colored copperplate engraving of three lizards by Friedrich Johann Bertuch. From Bilderbuch fur Kinder (Picture Book for Children), Weimar, 1798. Wooden frame under glass.",
+         "description": " These landscapes capture the rugged beauty, grandeur, and tranquility of mountainous regions. ",
           "height":"17.75 inches/ 45.09 cm",
-          "width":"14.75 inches/ 37.47 cm"
+          "width":"14.75 inches/ 37.47 cm",
+          "auction":"upcoming"
+
         },
         {
           "id": 5,
@@ -172,9 +188,11 @@
           "category": "Painting",
           "buybutton":"Buy",
           "button": "Bid",
-         "description": "Hand-colored copperplate engraving of three lizards by Friedrich Johann Bertuch. From Bilderbuch fur Kinder (Picture Book for Children), Weimar, 1798. Wooden frame under glass.",
+         "description": "It often includes elements such as mountains, valleys, rivers, forests, and skies, portraying a wide range of environments and atmospheres.",
           "height":"17.75 inches/ 45.09 cm",
-          "width":"14.75 inches/ 37.47 cm"
+          "width":"14.75 inches/ 37.47 cm",
+          "auction":"upcoming"
+
         },
         {
           "id": 6,
@@ -188,9 +206,11 @@
           "category": "Fine Art Prints",
           "buybutton":"Buy",
           "button": "Bid",
-         "description": "Hand-colored copperplate engraving of three lizards by Friedrich Johann Bertuch. From Bilderbuch fur Kinder (Picture Book for Children), Weimar, 1798. Wooden frame under glass.",
+         "description": "The azure expanse of the ocean stretches endlessly to meet the horizon, where the sky melds seamlessly with the water in a symphony of blues.",
           "height":"17.75 inches/ 45.09 cm",
-          "width":"14.75 inches/ 37.47 cm"
+          "width":"14.75 inches/ 37.47 cm",
+          "auction":"opened"
+
         }
       ]
   }

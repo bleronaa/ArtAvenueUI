@@ -7,6 +7,26 @@
   position: relative; 
 }
 
+.auctions-type{
+  font-size: 25px;
+  margin-top: 30px;
+  font-family:'Times New Roman', Times, serif;
+  font-weight: 600;
+  height:50px;
+}
+.opening-date{
+  margin-top: 5px;
+  margin-bottom: -20px;
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(46, 45, 45);
+}
+.close-date{
+  margin-top: 5px;
+  margin-bottom: -20px;
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(46, 45, 45);
+}
+
 .image-container {
   display: flex;
   flex-wrap: wrap;
@@ -15,14 +35,28 @@
 
 .category-section {
   margin: 10px;
+  /* width: calc(25% - 20px); */
+  box-sizing: border-box;
 }
 
 .image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  margin-top: 20px;
 }
 
 .image-item img {
-  margin-top: 70px;
+  max-width: 100%; 
+  border-radius: 5px;
+  margin-top: 10px; 
+
+}
+.image-item:hover {
+  background-color: #f5f5f5; 
+  cursor: pointer; 
 }
 
 .category-name {
@@ -34,14 +68,14 @@
 
 .horizontal-scroll {
   display: flex;
-  flex-wrap: nowrap; /* Prevent items from wrapping */
-  overflow-x: auto; /* Enable horizontal scrolling */
-  overflow-y: hidden; /* Hide vertical scrollbar */
+  flex-wrap: nowrap; 
+  overflow-x: auto; 
+  overflow-y: hidden; 
 }
 
 .horizontal-scroll .image-item {
-  flex: 0 0 auto; /* Ensure items don't grow or shrink */
-  margin-right: 20px; /* Add spacing between items */
+  flex: 0 0 auto;
+  margin-right: 20px; 
 }
 
 .upcoming {
@@ -54,14 +88,15 @@
 .sidebar {
   padding: 20px;
   width: 250px;
+  height:100vh;
   border-right: 1px solid #ccc;
   background-color: #f9f9f9;
-  display: block; /* Ensure sidebar is visible */
-  transition: transform 0.3s ease; /* Smooth transition for sidebar */
+  display: block;
+  transition: transform 0.3s ease; 
 }
 
 .sidebar.open {
-  transform: translateX(0); /* Slide in the sidebar when open */
+  transform: translateX(0);
 }
 
 .sidebar h3 {

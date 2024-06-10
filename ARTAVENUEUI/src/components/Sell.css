@@ -57,6 +57,15 @@
   .bid-button.next{
   margin: 10px auto;
   }
+
+
+  .choose-Category{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 30px;
+    font-weight: 500;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 .general-container{
   padding:30px
 }
@@ -71,7 +80,7 @@
   }
   
   .category-container {
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -98,7 +107,7 @@
     text-align: center;
     align-items: center;
     font-size: 25px;
-    font-weight: 500px;
+    font-weight: 500;
     padding-top: 30px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -140,7 +149,7 @@
     margin-top: 1rem;
   }
   .css-n7tliy-MuiStep-root{
-    margin-top: 140px;
+    margin-top: 90px;
   }
   
   @media (max-width: 420px){

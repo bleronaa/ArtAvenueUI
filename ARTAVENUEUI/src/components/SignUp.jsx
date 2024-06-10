@@ -23,10 +23,9 @@ const SignUp = () => {
   
 
   return (
-   <div>
-    <div className="header">
-      <img src={logo} alt='logo'/>
-    </div>
+    <div className="login-page">
+
+    
     <div className="Signup-container">
       <h2>Welcome</h2>
       <form onSubmit={handleSubmit}>
@@ -76,7 +75,6 @@ const SignUp = () => {
           <a href="#">Forgot your passwod?</a>
         </div>
       </form>
-      <img src={banner} alt='banner' className='banner'/>
       
     </div>
 
