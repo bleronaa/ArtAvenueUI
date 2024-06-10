@@ -3,8 +3,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { RiImageAddFill } from "react-icons/ri";
 import { MdDone } from "react-icons/md";
 import {Stepper, Step, StepLabel, Button, Typography, Box, TextField,
-  FormControl,InputLabel,Select,MenuItem,Paper,List,ListItem,
-  ListItemText,
+  FormControl,InputLabel,Select,MenuItem
 } from '@mui/material';
 import './Sell.css';
 
@@ -82,7 +81,7 @@ const Sell = () => {
         );
         case 1:
           return (
-            <Box>
+            <div className='general-container'>
               <Typography variant="h6" gutterBottom>Tell us about your item</Typography>
               <Typography variant="h4" gutterBottom>General</Typography>
               <Typography variant="h6" gutterBottom>Item's country of Origin</Typography>
@@ -187,11 +186,12 @@ const Sell = () => {
                 value={formData.yearPaid}
                 onChange={(e) => setFormData({ ...formData, yearPaid: e.target.value })}
               />
-            </Box>
+            </div>
           );
         
           case 2:
             return (
+             <div className='upload'>
               <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', textAlign: 'center', width: '100%' }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '60%' }}>
                   <Typography variant="h6" gutterBottom>Upload Your Photos and Documents</Typography>
@@ -249,6 +249,7 @@ const Sell = () => {
                   <Typography variant="body2">8. Use your own photos: we cannot accept a photograph of a photo of the work.</Typography>
                 </Box>
               </Box>
+              </div>
             );
           
             case 3:

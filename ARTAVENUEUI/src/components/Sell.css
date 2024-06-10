@@ -5,6 +5,7 @@
 .howWorks {
     text-align: center;
     margin: 90px auto;
+    padding:20px
   }
   
   .howWorks h1 {
@@ -56,8 +57,12 @@
   .bid-button.next{
   margin: 10px auto;
   }
-
- 
+.general-container{
+  padding:30px
+}
+ .upload{
+  padding:35px
+ }
   .category-page-container {
     display: flex;
     justify-content: center;
@@ -66,11 +71,12 @@
   }
   
   .category-container {
-    margin-top: 90px;
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap:90px;
+    padding: 40px;
   }
   
 
@@ -78,7 +84,7 @@
   .category-box {
     flex: 1;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #a3a2a2;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -109,6 +115,7 @@
     padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
+    padding: 30px;
   }
   
   .review-section h6 {
@@ -132,6 +139,42 @@
   .review-section .button-container {
     margin-top: 1rem;
   }
+  .css-n7tliy-MuiStep-root{
+    margin-top: 140px;
+  }
   
+  @media (max-width: 420px){
+    .howWorks h1{
+      font-size: 40px;
+    }
+    .disclaimer{
+      font-size: 18px;
+    }
+    .steps{ 
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .step{
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .category-box{
+      padding: 20px;
+      margin: 20px;
+      width:auto;
+    }
   
-  
+  }
+  @media (max-width:680px){
+    .category-container{
+      display: block;
+     
+    }
+    .category-box{
+      padding: 20px;
+      margin: 20px;
+      height:150px;
+    }
+
+  }

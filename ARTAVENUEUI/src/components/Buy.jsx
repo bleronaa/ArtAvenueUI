@@ -5,6 +5,7 @@ import './Auctions.css';
 import { IoIosPricetags } from "react-icons/io";
 import { IoLocationSharp } from "react-icons/io5";
 import { AiOutlineSearch, AiOutlineShoppingCart } from 'react-icons/ai';
+import { IoFilterOutline } from "react-icons/io5";
 
 const Buy = () => {
   const { NewDiscoveries } = data;
@@ -12,6 +13,7 @@ const Buy = () => {
   const [locationFilters, setLocationFilters] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
   const [searchText, setSearchText] = useState('');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State to manage sidebar visibility
   const navigate = useNavigate();
 
   const handleSortByChange = (e) => {
@@ -33,6 +35,14 @@ const Buy = () => {
 
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
+  };
+
+  const handleSearch = () => {
+    console.log("Search performed:", searchText);
+  };
+
+  const handleSidebarToggle = () => {
+    setIsSidebarOpen((prev) => !prev); 
   };
 
   const filteredImages = NewDiscoveries.filter((image) => {
@@ -65,26 +75,27 @@ const Buy = () => {
     navigate('/order', { state: { image } });
   };
 
-  const handleSearch = () => {
-    console.log("Search performed:", searchText);
-  };
-
   return (
     <div className="auctions-container">
-      <div className="sidebar">
+       <button className="menu-button" onClick={handleSidebarToggle}>
+        <IoFilterOutline />
+
+        </button>
+      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+       
         <div className="filter-section">
-        <div className="search-container-wrapper">
-          <div className="search-container">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="search-input"
-              value={searchText}
-              onChange={handleSearchTextChange}
-            />
-            <AiOutlineSearch className="search-icon" onClick={handleSearch} />
+          <div className="search-container-wrapper">
+            <div className="search-container">
+              <input
+                type="text"
+                placeholder="Search..."
+                className="search-input"
+                value={searchText}
+                onChange={handleSearchTextChange}
+              />
+              <AiOutlineSearch className="search-icon" onClick={handleSearch} />
+            </div>
           </div>
-        </div>
           <p>Sort by Estimate</p>
           <div>
             <input
@@ -142,7 +153,6 @@ const Buy = () => {
         </div>
       </div>
       <div className="right-content">
-        
         <div className="image-container">
           {filteredImages.map((image) => (
             <div className="image-item" key={image.id}>

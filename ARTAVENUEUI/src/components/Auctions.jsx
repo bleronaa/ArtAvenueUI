@@ -3,6 +3,7 @@ import data from './data.json';
 import { useNavigate } from 'react-router-dom';
 import './Auctions.css'; 
 import Footer from './Footer';
+import { IoFilterOutline } from "react-icons/io5";
 import { AiOutlineSearch, AiOutlineShoppingCart } from 'react-icons/ai';
 import { IoIosPricetags } from "react-icons/io";
 import { IoLocationSharp } from "react-icons/io5";
@@ -19,6 +20,7 @@ const Auctions = () => {
   const [locationFilters, setLocationFilters] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
   const [searchText, setSearchText] = useState('');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // New state for sidebar toggle
   const navigate = useNavigate();
 
   const handleCategoryClick = (category) => {
@@ -48,6 +50,10 @@ const Auctions = () => {
 
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
+  };
+
+  const handleSidebarToggle = () => {
+    setIsSidebarOpen((prev) => !prev); 
   };
 
   const filteredImages = NewDiscoveries.filter((image) => {
@@ -82,126 +88,128 @@ const Auctions = () => {
 
   return (
     <>
-    <div className="auctions-container" >
-      <div className="sidebar">
-        <div className="filter-section">
-        <div className="search-container-wrapper">
-          <div className="search-container">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="search-input"
-              value={searchText}
-              onChange={handleSearchTextChange}
-            />
-            <AiOutlineSearch className="search-icon" onClick={handleSearch} />
-          </div>
-        </div>
-          <p>Sort by Estimate</p>
-          <div>
-            <input
-              type="radio"
-              id="estimate-asc"
-              name="sort-by"
-              value="estimate-asc"
-              checked={sortBy === 'estimate-asc'}
-              onChange={handleSortByChange}
-            />
-            <label htmlFor="estimate-asc">End Date - Ascending</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="estimate-desc"
-              name="sort-by"
-              value="estimate-desc"
-              checked={sortBy === 'estimate-desc'}
-              onChange={handleSortByChange}
-            />
-            <label htmlFor="estimate-desc">End Data - Descending</label>
-          </div>
-        </div>
-        <div className="filter-section">
-          <p>Location</p>
-          {['Prishtine', 'Mitrovice', 'Tirane'].map((location) => (
-            <div key={location}>
-              <input
-                type="checkbox"
-                id={location}
-                value={location}
-                checked={locationFilters.includes(location)}
-                onChange={handleLocationFilterChange}
-              />
-              <label htmlFor={location}>{location}</label>
+      <div className="auctions-container">
+        <button className="menu-button" onClick={handleSidebarToggle}>
+          <IoFilterOutline /> 
+        </button>
+        <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+          <div className="filter-section">
+            <div className="search-container-wrapper">
+              <div className="search-container">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="search-input"
+                  value={searchText}
+                  onChange={handleSearchTextChange}
+                />
+                <AiOutlineSearch className="search-icon" onClick={handleSearch} />
+              </div>
             </div>
-          ))}
-        </div>
-        <div className="filter-section">
-          <p>Category</p>
-          {['Painting', 'Fine Art Prints', 'Sculpture'].map((category) => (
-            <div key={category}>
+            <p>Sort by Estimate</p>
+            <div>
               <input
                 type="radio"
-                id={category}
-                name="category"
-                value={category}
-                checked={categoryFilter === category}
-                onChange={handleCategoryFilterChange}
+                id="estimate-asc"
+                name="sort-by"
+                value="estimate-asc"
+                checked={sortBy === 'estimate-asc'}
+                onChange={handleSortByChange}
               />
-              <label htmlFor={category}>{category}</label>
+              <label htmlFor="estimate-asc">End Date - Ascending</label>
             </div>
-          ))}
-        </div>
-       
-      </div>
-      <div className="right-content">
-      
-        <div className="image-container">
-        {['Painting', 'Fine Art Prints', 'Sculpture'].map((category) => (
-  <div key={category} className="category-section">
-    {!visibleCategory || visibleCategory === category ? (
-      <div className="image-item">
-        <img src={initialImages[category]} alt={category} />
-        <span className='upcoming'>UPCOMING AUCTIONS</span>
-        <p className="category-name">{category}</p>
-        <button
-          className="bid-button"
-          onClick={() => handleCategoryClick(category)}
-        >
-          {visibleCategory === category ? 'Hide' : 'Open'}
-        </button>
-        {visibleCategory === category && (
-          <div className="horizontal-scroll">
-            {filteredImages
-              .filter((image) => image.category === category)
-              .map((image) => (
-                <div className="image-item" key={image.id}>
-                  <img src={image.url} alt={image.name} />
-                  <p>{image.text}</p>
-                  <p className="text" ><IoIosPricetags className="price-icon"/> {image.price}</p>
-              <p className="text"><IoLocationSharp  className="location-icon" /> {image.location}</p>
-                  <button
-                    className="buy-button"
-                    onClick={() => handleBuyButtonClick(image)}
-                  >
-                    <AiOutlineShoppingCart />
-                    Buy Now
-                  </button>
-                </div>
-              ))}
+            <div>
+              <input
+                type="radio"
+                id="estimate-desc"
+                name="sort-by"
+                value="estimate-desc"
+                checked={sortBy === 'estimate-desc'}
+                onChange={handleSortByChange}
+              />
+              <label htmlFor="estimate-desc">End Date - Descending</label>
+            </div>
           </div>
-        )}
+          <div className="filter-section">
+            <p>Location</p>
+            {['Prishtine', 'Mitrovice', 'Tirane'].map((location) => (
+              <div key={location}>
+                <input
+                  type="checkbox"
+                  id={location}
+                  value={location}
+                  checked={locationFilters.includes(location)}
+                  onChange={handleLocationFilterChange}
+                />
+                <label htmlFor={location}>{location}</label>
+              </div>
+            ))}
+          </div>
+          <div className="filter-section">
+            <p>Category</p>
+            {['Painting', 'Fine Art Prints', 'Sculpture'].map((category) => (
+              <div key={category}>
+                <input
+                  type="radio"
+                  id={category}
+                  name="category"
+                  value={category}
+                  checked={categoryFilter === category}
+                  onChange={handleCategoryFilterChange}
+                />
+                <label htmlFor={category}>{category}</label>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="right-content">
+          <div className="image-container">
+            {['Painting', 'Fine Art Prints', 'Sculpture'].map((category) => (
+              <div key={category} className="category-section">
+                {!visibleCategory || visibleCategory === category ? (
+                  <div className="image-item">
+                    <img src={initialImages[category]} alt={category} />
+                    <span className='upcoming'>UPCOMING AUCTIONS</span>
+                    <p className="category-name">{category}</p>
+                    <button
+                      className="bid-button"
+                      onClick={() => handleCategoryClick(category)}
+                    >
+                      {visibleCategory === category ? 'Hide' : 'Open'}
+                    </button>
+                    {visibleCategory === category && (
+                     <div className="horizontal-scroll">
+                     {filteredImages
+                       .filter((image) => image.category === category)
+                       .map((image) => (
+                         <div className="category-section" key={image.id}> 
+                           <div className="image-item">
+                             <img src={image.url} alt={image.name} />
+                             <p>{image.text}</p>
+                             <p className="text"><IoIosPricetags className="price-icon" /> {image.price}</p>
+                             <p className="text"><IoLocationSharp className="location-icon" /> {image.location}</p>
+                             <button
+                               className="buy-button"
+                               onClick={() => handleBuyButtonClick(image)}
+                             >
+                               <AiOutlineShoppingCart />
+                               Buy Now
+                             </button>
+                           </div>
+                         </div>
+                       ))}
+                   </div>
+                    )}
+                  </div>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    ) : null}
-  </div>
-))}
-      </div>
-    </div>
-  </div>
-    <Footer/>
-
-  </>
-);
+      <Footer />
+    </>
+  );
 };
 
 export default Auctions;

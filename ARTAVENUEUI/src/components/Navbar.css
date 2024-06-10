@@ -8,13 +8,16 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 /* Logo */
 .logo img {
-  width: 150px;
-  height: 80px;
+  width: 140px;
+  height: 110px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 30px;
 }
 
 /* Navbar Links */
