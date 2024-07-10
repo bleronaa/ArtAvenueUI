@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { IoEarthOutline, IoCalculator } from "react-icons/io5";
+import Signature from '../images/violinsignature.png';
 import './Order.css';
 import Footer from './Footer';
 

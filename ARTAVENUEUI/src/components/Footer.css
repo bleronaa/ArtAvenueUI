@@ -61,6 +61,7 @@
 .support, .legal, .contact {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .support h3, .legal h3, .contact h3 {
@@ -68,6 +69,7 @@
   font-size: 20px;
   
 }
+
 
 .header, .contactlink {
   color: #333;

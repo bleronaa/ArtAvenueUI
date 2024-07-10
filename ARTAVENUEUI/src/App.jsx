@@ -9,6 +9,7 @@
   import Login from './components/Login';
   import SignUp from './components/SignUp';
   import Order from './components/Order';
+import ArtItems from './components/ArtItems';
 
   function App() {
     return (
@@ -21,7 +22,7 @@
           <Route path="/Auctions" element={<Auctions/>} />
           <Route path="/Buy" element={<Buy/>} />
           <Route path="/Sell" element={<Sell/>} />
-          <Route path="/About" element={<About/>} />
+          <Route path="/ArtItems" element={<ArtItems/>}/>
           <Route path="/Login" element={<Login/>}/>
           <Route path="/SignUp" element={<SignUp/>}/>
           <Route path='/order' element={<Order/>}/>

@@ -1,0 +1,36 @@
+.art-title{
+    margin-top: 30px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    padding-left: 50px;
+}
+hr {
+    display: block;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    unicode-bidi: isolate;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+    width:100%;
+}
+.Details{
+    display: flex;
+  border: 2px solid rgb(35, 35, 35);
+  color: black;
+  background-color: #fff;
+  padding: 5px;
+  gap: 10px;
+  width: auto;
+  margin-top: 10px;
+  align-items: center;
+  font-size: 18px;
+  height: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}

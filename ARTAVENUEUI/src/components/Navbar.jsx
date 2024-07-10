@@ -32,9 +32,12 @@ const Navbar = () => {
                         <Link to="/Sell" onClick={handleClick}>
                             <li>Sell</li>
                         </Link>
-                        <Link to="/About" onClick={handleClick}>
-                            <li>About</li>
+                        <Link to="/ArtItems" onClick={handleClick}>
+                            <li>Art Items</li>
                         </Link>
+                        {/* <Link to="/About" onClick={handleClick}>
+                            <li>About</li>
+                        </Link> */}
                         <Link to="/Login" onClick={handleClick}>
                             <li><FaUserAlt /></li>
                         </Link>
@@ -61,8 +64,11 @@ const Navbar = () => {
                         <Link to="/Sell" onClick={handleClick}>
                             <li>Sell</li>
                         </Link>
-                        <Link to="/About" onClick={handleClick}>
+                        {/* <Link to="/About" onClick={handleClick}>
                             <li>About</li>
+                        </Link> */}
+                        <Link to="/ArtItems" onClick={handleClick}>
+                            <li>Art Items</li>
                         </Link>
                         <Link to="/Login" onClick={handleClick}>
                             <li className='user-icon'><FaUserAlt /></li>

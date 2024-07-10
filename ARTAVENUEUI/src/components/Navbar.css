@@ -102,6 +102,7 @@ nav {
   font-size: 20px;
 }
 
+
 /* For 640 Resolution */
 @media only screen and (max-width: 640px) {
   .nav-links {

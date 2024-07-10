@@ -46,7 +46,7 @@ const Home = () => {
               className='slider-image'
             />
             <div className='content flex'>
-              <p className='h2text'>{carousel.text}</p>
+              {/* <p className='h2text'>{carousel.text}</p> */}
             </div>
             <div className="carousel-text-box">
               <h2>"Discover extraordinary art at our auctions. Bid, win, and bring home timeless treasures that inspire and enrich your life."</h2>
