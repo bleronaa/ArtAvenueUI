@@ -43,23 +43,23 @@ const Sell = () => {
       setActiveStep((prevActiveStep) => prevActiveStep - 1);
     }
   };
-  const handleReset = () => {
-    setActiveStep(0);
-    setFormData({
-      category: '',
-      country: '',
-      artist: '',
-      titleOfWork: '',
-      measurementUnit: '',
-      framedHeight: '',
-      framedWidth: '',
-      framedDepth: '',
-      pricePaid: '',
-      currency: '',
-      yearPaid: '',
-    });
-    setShowHowWorks(true);
-  };
+  // const handleReset = () => {
+  //   setActiveStep(0);
+  //   setFormData({
+  //     category: '',
+  //     country: '',
+  //     artist: '',
+  //     titleOfWork: '',
+  //     measurementUnit: '',
+  //     framedHeight: '',
+  //     framedWidth: '',
+  //     framedDepth: '',
+  //     pricePaid: '',
+  //     currency: '',
+  //     yearPaid: '',
+  //   });
+  //   setShowHowWorks(true);
+  // };
 
   const handleCategoryClick = (category) => {
     setFormData({ ...formData, category });
@@ -313,7 +313,7 @@ const Sell = () => {
                 </div>
                
                 <div className="button-container">
-                  <Button variant="contained" color="primary" onClick={handleReset} sx={{ marginRight: '1rem' }}>Reset</Button>
+                  {/* <Button variant="contained" color="primary" onClick={handleReset} sx={{ marginRight: '1rem' }}>Reset</Button> */}
                   <Button variant="contained" color="primary" onClick={handleReviewSubmit}>Finish</Button>
                 </div>
               </Box>

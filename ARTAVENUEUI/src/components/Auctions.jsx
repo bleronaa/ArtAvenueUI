@@ -209,62 +209,60 @@ const Auctions = () => {
 
 
         <div className="right-content">
-        <div className="image-container">
-          <h1 className='auctions-type'>Opened  Auctions</h1>
+            <div className="image-container">
+            <h1 className='auctions-type'>Opened  Auctions</h1>
 
-          {['Painting', 'Fine Art Prints', 'Sculpture', 'Impressionism'].map((category) => (
-  <div key={category} className="category-section">
-    {!visibleCategory || visibleCategory === category ? (
-      <div className="image-item">
-        <img src={openedAuctions[category].url} alt={category} />
-        <span className='upcoming'>Opened AUCTIONS</span>
-        <p className="opening-date">Opening Date: {openedAuctions[category].openingDate}</p> 
-        <p className="close-date">Close Date: {openedAuctions[category].closingDate}</p> 
+             {['Painting', 'Fine Art Prints', 'Sculpture', 'Impressionism'].map((category) => (
+                <div key={category} className="category-section">
+                  {!visibleCategory || visibleCategory === category ? (
+                 <div className="image-item">
+                  <img src={openedAuctions[category].url} alt={category} />
+                  <span className='upcoming'>Opened AUCTIONS</span>
+                  <p className="opening-date">Opening Date: {openedAuctions[category].openingDate}</p> 
+                  <p className="close-date">Close Date: {openedAuctions[category].closingDate}</p> 
 
 
-        <p className="category-name">{category}</p>
-        <button
-          className="bid-button"
-          onClick={() => handleCategoryClick(category)}
-        >
-          {visibleCategory === category ? 'Hide' : 'Open'}
-        </button>
-        {visibleCategory === category && (
-          <div className="horizontal-scroll">
-            {filteredImages
-              .filter((image) => image.category === category && image.auction === 'opened') 
-              .map((image) => (
-                <div className="category-section" key={image.id}> 
-                  <div className="image-item">
-                    <img src={image.url} alt={image.name} />
-                    <p>{image.text}</p>
-                    <p className="text"> {image.description}</p>
-                    <div className='iconss'>
+                  <p className="category-name">{category}</p>
+                  <button
+                    className="bid-button"
+                    onClick={() => handleCategoryClick(category)}
+                  >
+                    {visibleCategory === category ? 'Hide' : 'Open'}
+                  </button>
+                  {visibleCategory === category && (
+                    <div className="horizontal-scroll">
+                      {filteredImages
+                        .filter((image) => image.category === category && image.auction === 'opened') 
+                        .map((image) => (
+                          <div className="category-section" key={image.id}> 
+                            <div className="image-item">
+                              <img src={image.url} alt={image.name} />
+                              <p>{image.text}</p>
+                              <p className="text"> {image.description}</p>
+                              <div className='iconss'>
 
-                    <p className="text"><IoIosPricetags className="price-icon" /> {image.price}</p>
-                    <p className="text"><IoLocationSharp className="location-icon" /> {image.location}</p>
+                              <p className="text"><IoIosPricetags className="price-icon" /> {image.price}</p>
+                              <p className="text"><IoLocationSharp className="location-icon" /> {image.location}</p>
+                          </div>
+                              <button
+                                className="buy-button"
+                                onClick={() => handleBuyButtonClick(image)}
+                              >
+                                <AiOutlineShoppingCart />
+                                Buy Now
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  )}
                 </div>
-                    <button
-                      className="buy-button"
-                      onClick={() => handleBuyButtonClick(image)}
-                    >
-                      <AiOutlineShoppingCart />
-                      Buy Now
-                    </button>
-                  </div>
-                </div>
-              ))}
+              ) : null}
+            </div>
+          ))}
+
           </div>
-        )}
-      </div>
-    ) : null}
-  </div>
-))}
-
-</div>
-       
-
-
+          
           <div className="image-container">
           <h1 className='auctions-type'>Upcoming  Auctions</h1>
 

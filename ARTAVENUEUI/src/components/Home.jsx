@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import './Home.css';
-import data from './data.json';
 import bg from '../images/Hybrid-Homepage-RW-Prog-large.jpg';
 import Footer from './Footer';
 import { IoIosPricetags } from "react-icons/io";
@@ -13,17 +13,42 @@ import { BsEasel2 } from "react-icons/bs";
 import { TbCurrencyDollar } from "react-icons/tb";
 import { RiAuctionLine } from "react-icons/ri";
 import { FiTruck } from "react-icons/fi";
+import data from './data.json'; // Import JSON data directly
 
 const Home = () => {
-  const { homeData, imageCarousel, NewDiscoveries } = data;
+  const [homeData, setHomeData] = useState([]);
+  const [imageCarousel, setImageCarousel] = useState([]);
+  const [NewDiscoveries, setNewDiscoveries] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
+
+  useEffect(() => {
+    fetchData();
+    fetchCategories();
+  }, []);
+
+  const fetchData = () => {
+    // Use imported JSON data
+    setHomeData(data.homeData);
+    setImageCarousel(data.imageCarousel);
+    setNewDiscoveries(data.NewDiscoveries);
+  };
+
+  const fetchCategories = async () => {
+    try {
+      const response = await axios.get('https://localhost:44340/api/Category/getCategoryList');
+      setCategories(response.data);
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+    }
+  };
 
   const handleBidButtonClick = () => {
     window.location.href = '/Login';
   };
 
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
+  const handleCategoryClick = async (categoryName) => {
+    setSelectedCategory(categoryName);
   };
 
   const filteredImages = selectedCategory === 'All' 
@@ -55,62 +80,53 @@ const Home = () => {
         ))}
       </Carousel>
       
-      <div className='container'>
-       
-        <div className="category">
+      <div className="category">
           <h2>Shop by Category</h2>
-          <button className='categoryButton' onClick={() => handleCategoryClick('Painting')}>Painting</button>
-          <button className='categoryButton' onClick={() => handleCategoryClick('Fine Art Prints')}>Fine Art Prints</button>
-          <button className='categoryButton' onClick={() => handleCategoryClick('Sculpture')}>Sculpture</button>
-          
+          {categories.map(category => (
+            <button 
+              key={category.Id} // Assuming category.id is unique for each category
+              className='categoryButton'
+              onClick={() => handleCategoryClick(category.name)}
+            >
+              {category.name}
+            </button>
+          ))}
         </div>
-        <hr className='hrLine'></hr>
 
         <h2 className='title'>Suggested for you</h2>
-        <hr/>
+        <div className='line'></div>
         <div className="image-container">
           {filteredImages.map(image => (
             <div className="image-item" key={image.id}>
               <img src={image.url} alt={image.name} />
               <h2>{image.text}</h2>
-            <div className='iconss'>
-             
-              <p className="text" ><IoIosPricetags className="price-icon"/> {image.estimate}</p>
-              <p className="text"><IoLocationSharp  className="location-icon" /> {image.location}</p>
-           </div>
+              <div className='iconss'>
+                <p className="text" ><IoIosPricetags className="price-icon"/> {image.estimate}</p>
+                <p className="text"><IoLocationSharp  className="location-icon" /> {image.location}</p>
+              </div>
               <button className='bid-button' onClick={handleBidButtonClick}>{image.button}</button>
             </div>
           ))}
         </div>
-        <hr className='hrLine'></hr>
-
+        <div className='hrLine'></div>
         <div className=" content about-auction-container">
           <div className='about-auction'>
-            <span>
-            <BsEasel2 />
-
-            </span>
+            <span><BsEasel2 /></span>
             <h3>Various options</h3>
             <p>Lots of different artwork every week. Various paintings, sculptures according to different categories</p>
           </div>
           <div className='about-auction'>
-            <span>
-            <TbCurrencyDollar />
-            </span>
+            <span><TbCurrencyDollar /></span>
             <h3>Reasonable prices</h3>
             <p>There are no additional fees. Reasonable and clear pricing. You only pay for the art not including shipping.</p>
           </div>
           <div className='about-auction'>
-            <span>
-            <RiAuctionLine />
-            </span>
+            <span><RiAuctionLine /></span>
             <h3>Art auctions</h3>
             <p>Fast and free registration. Easy to use website.Auctions available online 24 hours a day.</p>
           </div>
           <div className='about-auction'>
-            <span>
-            <FiTruck />
-            </span>
+            <span><FiTruck /></span>
             <h3>Transport</h3>
             <p>Reliable carrier. It doesn't matter where you are, as long as you like the artwork, the order will come to you.</p>
           </div>
@@ -122,15 +138,15 @@ const Home = () => {
               <img src={image.url} alt={image.name} />
               <h2>{image.text}</h2>
               <p className="desc"> {image.description}</p>
-            <div className='iconss'>
-            <p className="text" ><IoIosPricetags className="price-icon"/> {image.estimate}</p>
-              <p className="text"><IoLocationSharp  className="location-icon" /> {image.location}</p>
-            </div>
+              <div className='iconss'>
+                <p className="text" ><IoIosPricetags className="price-icon"/> {image.estimate}</p>
+                <p className="text"><IoLocationSharp  className="location-icon" /> {image.location}</p>
+              </div>
               <button className='bid-button'>{image.button}</button>
             </div>
           ))}
         </div>
-        <hr className='hrLine'></hr> 
+        <div className='line'></div>
         <div className="BB">
           <div className="img">
             <img src={bg} width={500}/>
@@ -140,7 +156,7 @@ const Home = () => {
             <p>“At B&B, we make it our mission to help you discover and buy from the best emerging artists around the world. Whether you’re looking to discover a new artist, add a statement piece to your home, or commemorate an important life event, Saatchi Art is your portal to thousands of original works by today’s top artists.”</p>
           </div>
         </div>
-      </div>
+  
       <Footer/>
     </>
   );

@@ -178,11 +178,14 @@
   }
   
   /* Horizontal Line */
-  .hrLine {
-    margin: 30px auto;
-    width: auto;
-    border: 1px solid rgb(45, 43, 43);
-  }
+  
+  .line{
+    width:90%;
+    height: 0;
+    border-top-width: 2px;
+    margin-top:60px;
+    margin-bottom: 60px;
+    }
   
   /* Category */
   .category {
@@ -234,6 +237,7 @@
     width: calc(25% - 20px); 
     box-sizing: border-box;
     margin: 5px; 
+    margin-top: 30px;
     transition: background-color 0.3s ease; 
   }
   
