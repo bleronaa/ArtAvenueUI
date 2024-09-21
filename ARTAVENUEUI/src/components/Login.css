@@ -1,10 +1,10 @@
 .login-page {
   position: relative;
   height: 100vh;
-  background: url('../images/banner.png') no-repeat center center/cover;
-   
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Dark overlay */
+    url(/src/images/banner.png) no-repeat center center / cover;
 }
-
 
 .login-container {
   position: absolute;

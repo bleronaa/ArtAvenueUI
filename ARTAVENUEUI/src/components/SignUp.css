@@ -43,7 +43,8 @@
   
   .submitSignupButton {
     width: 30%;
-    margin:10px 145px;
+    margin-top:20px ;
+    margin:20px auto;
     display: flex;
     justify-content: center;
     padding: 10px;
@@ -64,4 +65,18 @@
     color:blue
   }
  
- 
+  input[type="radio"] {
+    width: 10px;  /* Adjust the size of the radio button */
+    height: 10px; /* Adjust the size of the radio button */
+    margin-right: 5px;
+  }
+  
+
+  input[type="checkbox"] {
+    width: 10px;  /* Adjust the size of the radio button */
+    height: 10px  ; /* Adjust the size of the radio button */
+    margin-right: 5px;
+  }
+  .image{
+    width: 50%;
+  }

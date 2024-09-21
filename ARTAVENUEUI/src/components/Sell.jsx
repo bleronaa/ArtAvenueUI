@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { IoSearchOutline } from "react-icons/io5";
 import { RiImageAddFill } from "react-icons/ri";
 import { MdDone } from "react-icons/md";
@@ -6,8 +7,21 @@ import {Stepper, Step, StepLabel, Button, Typography, Box, TextField,
   FormControl,InputLabel,Select,MenuItem
 } from '@mui/material';
 import './Sell.css';
+import { useNavigate } from 'react-router-dom';
+import toastr from 'toastr';
+import Tooltip from '@mui/material/Tooltip';
+import { useAuth } from '../../context';
+
+
 
 const Sell = () => {
+
+  const userData=useAuth()
+  
+  useEffect(() => {
+    console.log('testssss',userData);
+  }, [userData]);
+
   const [activeStep, setActiveStep] = useState(0);
   const [showHowWorks, setShowHowWorks] = useState(true);
   const [formData, setFormData] = useState({
@@ -21,13 +35,37 @@ const Sell = () => {
     framedDepth: '',
     pricePaid: '',
     currency: '',
-    yearPaid: '',
+    buynow: '',
+    note:'',
+    year:'',
+    description:'',
+  });
+  const [images, setImages] = useState({
+    frontPhoto: null,
+    backPhoto: null,
+    detailsPhoto: null,
+    signaturePhoto: null,
   });
 
+
+  const handleFileChange = (e, name) => {
+    setImages({ ...images, [name]: e.target.files[0] });
+  };
   const steps = ['Category', 'Detail', 'Photos', 'Review'];
 
-  const categories = ['Paintings', 'Fine Art Prints', 'Sculpture'];
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get('https://localhost:44340/api/Category/getCategoryList');
+        setCategories(response.data);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
 
+    fetchCategories();
+  }, []);
   const handleNext = () => {
     if (showHowWorks && activeStep === 0) {
       setShowHowWorks(false);
@@ -43,6 +81,7 @@ const Sell = () => {
       setActiveStep((prevActiveStep) => prevActiveStep - 1);
     }
   };
+
   // const handleReset = () => {
   //   setActiveStep(0);
   //   setFormData({
@@ -71,9 +110,9 @@ const Sell = () => {
       case 0:
         return (
           <div className="category-container">
-          {categories.map((category, index) => (
-            <Box key={index} className="category-box" onClick={() => handleCategoryClick(category)}>
-              <h5 className='categoryName'>{category}</h5>
+          {categories.map((category) => (
+            <Box key={category.categroyId} className="category-box" onClick={() => handleCategoryClick(category.categroyId)}>
+              <h5 className="categoryName">{category.categoryName}</h5>
             </Box>
           ))}
         </div>
@@ -113,6 +152,26 @@ const Sell = () => {
                 variant="outlined"
                 value={formData.titleOfWork}
                 onChange={(e) => setFormData({ ...formData, titleOfWork: e.target.value })}
+              />
+
+<Typography variant="h6" gutterBottom>Description</Typography>
+              <TextField
+                fullWidth
+                sx={{ mb: 2 }}
+                label="Description"
+                variant="outlined"
+                value={formData.description}
+                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              />
+
+<Typography variant="h6" gutterBottom>Year</Typography>
+              <TextField
+                fullWidth
+                sx={{ mb: 2 }}
+                label="Year"
+                variant="outlined"
+                value={formData.year}
+                onChange={(e) => setFormData({ ...formData, year: e.target.value })}
               />
               <Typography variant="h4" gutterBottom>Measurements</Typography>
               <Typography variant="h6" gutterBottom>Measurement Unit</Typography>
@@ -154,18 +213,18 @@ const Sell = () => {
                 value={formData.framedDepth}
                 onChange={(e) => setFormData({ ...formData, framedDepth: e.target.value })}
               />
-              <Typography variant="h4" gutterBottom>Price</Typography>
-              <Typography variant="h6" gutterBottom>Price Paid</Typography>
+              <Typography variant="h4" gutterBottom>Set Price</Typography>
               <TextField
                 fullWidth
                 sx={{ mb: 2 }}
-                label="Price Paid"
+                label="Start Price"
                 variant="outlined"
                 value={formData.pricePaid}
                 onChange={(e) => setFormData({ ...formData, pricePaid: e.target.value })}
               />
-              <Typography variant="h6" gutterBottom>Currency</Typography>
-              <FormControl fullWidth sx={{ mb: 2 }}>
+             
+              {/* <Typography variant="h6" gutterBottom>Currency</Typography> */}
+              {/* <FormControl fullWidth sx={{ mb: 2 }}>
                 <InputLabel>Currency</InputLabel>
                 <Select
                   value={formData.currency}
@@ -176,17 +235,28 @@ const Sell = () => {
                   <MenuItem value="Dollar">Dollar</MenuItem>
                   <MenuItem value="Lek">Lek</MenuItem>
                 </Select>
-              </FormControl>
-              <Typography variant="h6" gutterBottom>Year Paid</Typography>
+              </FormControl> */}
               <TextField
                 fullWidth
                 sx={{ mb: 2 }}
-                label="Year Paid"
+                label="Buy immediately price "
                 variant="outlined"
                 value={formData.yearPaid}
                 onChange={(e) => setFormData({ ...formData, yearPaid: e.target.value })}
               />
+
+        <TextField
+          fullWidth
+            sx={{ mb: 2 }}
+         label="Note"
+         variant="outlined"
+         value={formData.note}
+          onChange={(e) => setFormData({ ...formData, note: e.target.value })} // Fixed the prop to "onChange"
+         multiline
+         rows={4} />
+
             </div>
+            
           );
         
           case 2:
@@ -200,6 +270,7 @@ const Sell = () => {
                     sx={{ mb: 2 }}
                     type="file"
                     inputProps={{ accept: 'image/jpeg,image/png,image/gif' }}
+                    onChange={(e) => handleFileChange(e, 'frontPhoto')}
                     label="Photo from the front"
                     InputLabelProps={{ shrink: true }}
                     variant="outlined"
@@ -209,6 +280,7 @@ const Sell = () => {
                     sx={{ mb: 2 }}
                     type="file"
                     inputProps={{ accept: 'image/jpeg,image/png,image/gif' }}
+                    onChange={(e) => handleFileChange(e, 'backPhoto')}
                     label="Photo from the back"
                     InputLabelProps={{ shrink: true }}
                     variant="outlined"
@@ -218,6 +290,7 @@ const Sell = () => {
                     sx={{ mb: 2 }}
                     type="file"
                     inputProps={{ accept: 'image/jpeg,image/png,image/gif' }}
+                    onChange={(e) => handleFileChange(e, 'detailsPhoto')}
                     label="Details"
                     InputLabelProps={{ shrink: true }}
                     variant="outlined"
@@ -227,6 +300,7 @@ const Sell = () => {
                     sx={{ mb: 2 }}
                     type="file"
                     inputProps={{ accept: 'image/jpeg,image/png,image/gif' }}
+                    onChange={(e) => handleFileChange(e, 'signaturePhoto')}
                     label="Signature of the painting"
                     InputLabelProps={{ shrink: true }}
                     variant="outlined"
@@ -257,8 +331,8 @@ const Sell = () => {
                 <Box className="review-section">
                     <Typography variant="h6" gutterBottom>Review information</Typography>
                     <div className="data-row">
-                    <Typography variant="body1" className="label">Category:</Typography>
-                    <Typography variant="body1" className="data">{formData.category}</Typography>
+                    <Typography variant="body1" className="label">Year:</Typography>
+                    <Typography variant="body1" className="data">{formData.year}</Typography>
                   </div>
                   
                 <div className="data-row">
@@ -298,23 +372,19 @@ const Sell = () => {
                 </div>
                 <div className="data-row">
 
-                <Typography variant="body1" className="label">Price Paid:</Typography>
+                <Typography variant="body1" className="label">Start Price:</Typography>
                 <Typography variant="body1" className="data">{formData.pricePaid}</Typography>
                 </div>
+              
                 <div className="data-row">
 
-                <Typography variant="body1" className="label">Currency:</Typography>
-                <Typography variant="body1" className="data">{formData.currency}</Typography>
-                </div>
-                <div className="data-row">
-
-                <Typography variant="body1" className="label">Year Paid:</Typography>
-                <Typography variant="body1" className="data">{formData.yearPaid}</Typography>
+                <Typography variant="body1" className="label">Buy immediately Price:</Typography>
+                <Typography variant="body1" className="data">{formData.buynow}</Typography>
                 </div>
                
                 <div className="button-container">
                   {/* <Button variant="contained" color="primary" onClick={handleReset} sx={{ marginRight: '1rem' }}>Reset</Button> */}
-                  <Button variant="contained" color="primary" onClick={handleReviewSubmit}>Finish</Button>
+                  <Button variant="contained" color="primary" onClick={handleSubmit}>Finish</Button>
                 </div>
               </Box>
               
@@ -323,9 +393,51 @@ const Sell = () => {
               return <Typography>Unknown step</Typography>;
           }
         };
+  const navigate = useNavigate();
       
-        const handleReviewSubmit = () => {
-      
+        const handleSubmit = async () => {
+          const data = new FormData();
+          data.append('ClientId',userData.data.id)
+          data.append('ArtName', formData.titleOfWork);
+          data.append('BuyimmediatelyPrice', formData.buynow);
+          data.append('StartPrice', formData.pricePaid);
+          data.append('Description', formData.description);
+          data.append('FirstArtist', formData.artist);
+          data.append('Year', formData.year);
+          data.append('CategoryId', formData.category);
+          data.append('Note', formData.note);
+          data.append('Unit', formData.measurementUnit);
+          data.append('FramedHeight', formData.framedHeight);
+          data.append('FramedDepth', formData.framedDepth);
+          data.append('FramedWidth', formData.framedWidth);
+          data.append('Images', images.frontPhoto);
+          data.append('Images', images.backPhoto);
+          data.append('Images', images.detailsPhoto);
+          data.append('Images', images.signaturePhoto);
+          const token = localStorage.getItem('token');
+          try {
+            const response = await axios.post('https://localhost:44340/api/ArtItem/addArtItemRequest', data, {
+              headers: {
+                'Content-Type': 'multipart/form-data',
+                 'Authorization': `Bearer ${token}`
+              }
+            });
+            if(response.data.success){
+              toastr.success(response.data.message, {
+                autoClose: 3000,
+              });
+              navigate('/')
+            }else{
+              toastr.error(response.data.message, {
+                autoClose: 3000,
+              });
+            }
+           
+          } catch (error) {
+            toastr.error(error.message, {
+              autoClose: 3000,
+            });
+          }
         };
 
   return (
@@ -352,7 +464,19 @@ const Sell = () => {
               <p>All set! Our specialists will review your submission</p>
             </div>
           </div>
-          <button className='bid-button next' onClick={handleNext}>Next</button>
+          {!userData.data?.id ? (
+  <Tooltip  title="You need to be logged in to sell an Art Item">
+    <span>
+      <button style={{cursor:'not-allowed'}} className="bid-button next" disabled>
+        Next
+      </button>
+    </span>
+  </Tooltip>
+) : (
+  <button className="bid-button next" onClick={handleNext}>
+    Next
+  </button>
+)}
         </div>
       )}
       

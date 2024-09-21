@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import data from './data.json';
 import './Auctions.css';
@@ -6,20 +7,70 @@ import { IoIosPricetags } from "react-icons/io";
 import { IoLocationSharp } from "react-icons/io5";
 import { AiOutlineSearch, AiOutlineShoppingCart } from 'react-icons/ai';
 import { IoFilterOutline } from "react-icons/io5";
+import Preloader from './Preloader';
 
 const Buy = () => {
   const { NewDiscoveries } = data;
   const [sortBy, setSortBy] = useState('');
   const [locationFilters, setLocationFilters] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
+  
   const [searchText, setSearchText] = useState('');
+
+  const [error, setError] = useState('');
+  const [artItemId, setartItemId] = useState('');
+
+  const [buyNow, setBuyNow] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [prelaoder, setPreloader]=useState(true);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get('https://localhost:44340/api/Category/getCategoryList');
+        setCategories(response.data);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State to manage sidebar visibility
   const navigate = useNavigate();
 
   const handleSortByChange = (e) => {
     setSortBy(e.target.value);
   };
+  const token = localStorage.getItem('token');
 
+  useEffect(() => {
+    const fetchBuyNow = async () => {
+      try {
+        const response = await axios.get('https://localhost:44340/api/ArtItem/getArtItemBuyNow', {
+          params: {
+            searchInput: searchText.trim(),
+            SortByDesc:sortBy,
+            CategoryId:categoryFilter,
+          },
+          headers: {
+             'Authorization': `Bearer ${token}`
+          } // Include searchInput in the request body
+        });
+        if (response.data) {
+          setBuyNow(response.data);
+        }
+      } catch (error) {
+        setError(error.message || 'Error fetching auction details');
+      }finally{
+        setPreloader(false);
+      }
+    };
+
+    fetchBuyNow();
+  }, [searchText,sortBy,categoryFilter]); 
   const handleLocationFilterChange = (e) => {
     const selectedLocation = e.target.value;
     setLocationFilters((prev) =>
@@ -31,10 +82,18 @@ const Buy = () => {
 
   const handleCategoryFilterChange = (e) => {
     setCategoryFilter(e.target.value);
+
+    console.log()
   };
 
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
+    console.log(searchText)
+  };
+
+  const handlePriceValueChange = (e) => {
+    setPriceSearch(e.target.value);
+    console.log(searchText)
   };
 
   const handleSearch = () => {
@@ -45,35 +104,18 @@ const Buy = () => {
     setIsSidebarOpen((prev) => !prev); 
   };
 
-  const filteredImages = NewDiscoveries.filter((image) => {
-    if (locationFilters.length > 0 && !locationFilters.includes(image.location)) {
-      return false;
-    }
+  
+  const handleBuyButtonClick = (artAuctionId) => {
+    setartItemId(artAuctionId)
+    navigate(`/order/${artAuctionId}/true`);
 
-    if (categoryFilter !== '' && image.category !== categoryFilter) {
-      return false;
-    }
-
-    if (searchText.trim() !== '') {
-      const searchRegex = new RegExp(searchText.trim(), 'i');
-      if (!Object.values(image).some((value) => searchRegex.test(value))) {
-        return false;
-      }
-    }
-    return true;
-  }).sort((a, b) => {
-    if (sortBy === 'estimate-asc') {
-      return parseInt(a.estimate.replace(/[^0-9]/g, ''), 10) - parseInt(b.estimate.replace(/[^0-9]/g, ''), 10);
-    } else if (sortBy === 'estimate-desc') {
-      return parseInt(b.estimate.replace(/[^0-9]/g, ''), 10) - parseInt(a.estimate.replace(/[^0-9]/g, ''), 10);
-    } else {
-      return 0;
-    }
-  });
-
-  const handleBuyButtonClick = (image) => {
-    navigate('/order', { state: { image } });
   };
+
+  if(prelaoder){
+    return ( <div className="preloader-container">
+      <Preloader />
+    </div>)
+  }
 
   return (
     <div className="auctions-container">
@@ -102,8 +144,8 @@ const Buy = () => {
               type="radio"
               id="estimate-asc"
               name="sort-by"
-              value="estimate-asc"
-              checked={sortBy === 'estimate-asc'}
+              value={false}
+              checked={sortBy === 'false'}
               onChange={handleSortByChange}
             />
             <label htmlFor="estimate-asc">Low to High</label>
@@ -113,14 +155,14 @@ const Buy = () => {
               type="radio"
               id="estimate-desc"
               name="sort-by"
-              value="estimate-desc"
-              checked={sortBy === 'estimate-desc'}
+              value={true}
+              checked={sortBy === 'true'}
               onChange={handleSortByChange}
             />
             <label htmlFor="estimate-desc">High to Low</label>
           </div>
         </div>
-        <div className="filter-section">
+        {/* <div className="filter-section">
           <p>Location</p>
           {['Prishtine', 'Mitrovice', 'Peje', 'Gjakove', 'Prizren', 'Tirane', 'Shkoder', 'Vlore', 'Berat', 'Elbasan'].map((location) => (
             <div key={location}>
@@ -134,45 +176,56 @@ const Buy = () => {
               <label htmlFor={location}>{location}</label>
             </div>
           ))}
-        </div>
+        </div> */}
         <div className="filter-section">
           <p>Category</p>
-          {['Painting', 'Fine Art Prints', 'Sculpture'].map((category) => (
-            <div key={category}>
+          {categories.map((category) => (
+            <div key={category.categroyId}>
               <input
                 type="radio"
-                id={category}
+                id={category.categroyId}
                 name="category"
-                value={category}
-                checked={categoryFilter === category}
+                value={category.categroyId}
+                checked={categoryFilter == category.categroyId}
                 onChange={handleCategoryFilterChange}
               />
-              <label htmlFor={category}>{category}</label>
+              <label htmlFor={category.categoryName}>{category.categoryName}</label>
             </div>
           ))}
         </div>
       </div>
-      <div className="right-content">
-        <div className="image-container">
-          {filteredImages.map((image) => (
-            <div className="image-item" key={image.id}>
-              <img src={image.url} alt={image.name} />
-              <h2>{image.text}</h2>
-            <div className='iconss'>
+         <div className='auction-details-container'>
 
-              <p className="text" ><IoIosPricetags className="price-icon"/> {image.price}</p>
-              <p className="text"><IoLocationSharp  className="location-icon" /> {image.location}</p>
-          </div>
-              <button className="buy-button" onClick={() => handleBuyButtonClick(image)}>
-                <AiOutlineShoppingCart />
-                Buy Now
-              </button>
-            </div>
-          ))}
-        </div>
+         <main>
+{buyNow.map((item) => (
+  <div class = "card" key={item.id} onClick={()=>handleBuyButtonClick(item.id)}>
+    <img src={transformImagePath(item.images[0]?.photoFormat||'')} alt=""/>
+    <div className="card-content">
+      <h2>
+        {item.artName}
+      </h2>
+      <p style={{ maxWidth: '50%' }}>
+  {item.description.length > 30 
+    ? `${item.description.substring(0, 30)}...` 
+    : item.description}
+  <br></br>
+   Price: {item.buyimmediatelyPrice}
+      </p>
+ 
+     {/* <button className='bidbutton'>BID NOW</button> */}
+     
+    </div>
+  </div>
+))}
+</main>
       </div>
     </div>
   );
 };
-
+const transformImagePath = (path) => {
+  if (!path) return ''; // Return an empty string or a default image URL if path is undefined
+  const baseURL = 'https://localhost:44340/ArtItem-photos/';
+  const fileName = path.split('\\').pop(); // Extract the filename from the path
+  return `${baseURL}${fileName}`;
+};
 export default Buy;

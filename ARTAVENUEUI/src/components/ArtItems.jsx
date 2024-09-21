@@ -26,9 +26,9 @@ const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
 
-  const handleBuyButtonClick = (image) => {
-    navigate('/order', { state: { image } });
-  };
+  // const handleBuyButtonClick = (image) => {
+  //   navigate('/order', { state: { image } });
+  // };
 
   return (
     <>

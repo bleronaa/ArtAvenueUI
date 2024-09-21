@@ -125,6 +125,133 @@
   background-color: black;
   color: white;
 }
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.add-to-bag-button {
+  background-color: #007bff; /* Default background color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-bag-button:enabled:hover {
+  background-color: #0056b3; /* Darker background on hover */
+}
+
+.disabled-button {
+  background-color: #ccc; /* Grey background for disabled state */
+  cursor: not-allowed;
+}
+
+.login-message {
+  color: #dc3545; /* Red color for the message */
+  font-size: 14px;
+}
+.disabled-button:hover{
+  cursor:not-allowed;
+}
+.breakdown-section {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;  /* Align text and price to opposite sides */
+  padding: px 0;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 10px;
+}
+
+.breakdown-total {
+  font-size: 1.2em;  /* Slightly larger text for total */
+  font-weight: bold;
+  color: #000;  /* Darker color for emphasis */
+}
+
+.breakdown-separator {
+  margin: 10px 0;
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+}
+
+
+
+.breakdown-section {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, box-shadow 0.3s ease; /* Use the same duration for both */
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px 5px; 
+  margin: 20px;
+  font-size: 1em;
+  color: #333;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+.breakdown-section.hide {
+  max-height: 0;
+  padding: 0; 
+}
+
+.breakdown-section.show {
+  max-height: 300px; /* Adjust based on content height */
+  padding: 5px; /* Restore padding when shown */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+}
+
+.toggle-button {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: transparent; /* Keep it transparent to see the arrow */
+  color: gray; /* Set text color to gray */
+  border: 1px solid gray; /* Border color can also be gray */
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Center align text and arrow */
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  margin-right: 10px; /* Space between arrow and text */
+  transition: border-width 0.3s ease;
+}
+
+.arrow.up {
+  border-bottom: 5px solid gray; /* Down arrow */
+}
+
+.arrow.down {
+  border-top: 5px solid gray; /* Up arrow */
+}
+
+.toggle-button:hover {
+  background-color: #8094a8;
+  color:black;
+}
+
+
+
+
 
 @media only screen and (max-width: 600px) {
   .order-container {
@@ -153,4 +280,8 @@
     align-items: center; 
     margin-top: 20px; 
   }
+
+
+
+  
 }
