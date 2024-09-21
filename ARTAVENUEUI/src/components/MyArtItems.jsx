@@ -120,7 +120,7 @@ const navigate=useNavigate()
     className={`mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600 ${!item.approve ? 'cursor-not-allowed' : ''}`}
     disabled={!item.approve}
   >
-    <div className={`flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition ${item.approve ? 'group-hover:bg-emerald-600 group-hover:text-white' : ''}`}>
+    <div className={`flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition ${item.approve ? ' group-hover:bg-emerald-600 group-hover:text-white' : ''}`}>
       Approve
     </div>
   </button>
