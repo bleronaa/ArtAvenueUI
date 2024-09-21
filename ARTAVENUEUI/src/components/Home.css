@@ -6,7 +6,9 @@
     height: 80vh;
     object-fit: cover;
   }
-  
+  .info-box{
+    display: flex;
+  }
   /* Content */
   /* .content .h2text {
     font-size: 20px;
@@ -21,9 +23,17 @@
     font-weight: bold;
     font-size: 30px;
     margin-bottom: 50px;
+    font-family:'Times New Roman', Times, serif;
+
 
   }
-  
+  .newarrivals{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10%;
+
+  }
   .h-header {
     height: 560px;
   }
@@ -164,6 +174,7 @@
     transition: background-color 0.3s ease;
     border-radius: 5px;
   }
+
   
   .bid-button:hover {
     background-color: black;
@@ -329,7 +340,11 @@
   .us p {
     margin-top: 30px;
   }
-  
+  .suggestedContainer:hover{
+    cursor: pointer;
+    box-shadow:  3px 2px lightgray;
+    transition: box-shadow,0.5s ease-in-out;
+  }
 
   @media only screen and (max-width: 600px) {
     .img {
@@ -383,6 +398,7 @@
       padding: 5rem ;
       row-gap: 3rem
     }
+  
     
   }
   @media (max-width: 1200px) {

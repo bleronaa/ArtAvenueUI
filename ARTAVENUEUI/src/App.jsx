@@ -10,11 +10,18 @@
   import SignUp from './components/SignUp';
   import Order from './components/Order';
 import ArtItems from './components/ArtItems';
+import AuctionDetails from './components/AuctionDetails';
+import Profile from './components/Profile';
+import { AuthProvider } from '../context.jsx'
+import ForgotPassword from './components/ForgotPassword.jsx';
+import ResetPassword from './components/ResetPassword.jsx';
+
 
   function App() {
     return (
       <BrowserRouter>
-        <div style={{ backgroundColor: '#F1EDE4', height: "100px" }}>
+       <AuthProvider>
+       <div style={{ backgroundColor: '#F1EDE4', height: "100px" }}>
           <Navbar />
         </div>
         <Routes>
@@ -25,9 +32,19 @@ import ArtItems from './components/ArtItems';
           <Route path="/ArtItems" element={<ArtItems/>}/>
           <Route path="/Login" element={<Login/>}/>
           <Route path="/SignUp" element={<SignUp/>}/>
-          <Route path='/order' element={<Order/>}/>
+          <Route path='/order/:artAuctionId/:fromBuyComponent' element={<Order/>}/>
+          <Route path="/auction/:auctionId" element={<AuctionDetails />} /> 
+          <Route path="/profile/:clientId" element={<Profile />} /> 
+          <Route path="/forgotpassword" element={<ForgotPassword />} /> 
+          <Route path="/resetpassword" element={<ResetPassword />} /> 
+
+
+
+          
         </Routes>
         {/* <Home/> */}
+       </AuthProvider>
+
       </BrowserRouter>
     );
   }
