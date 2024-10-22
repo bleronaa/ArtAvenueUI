@@ -9,6 +9,10 @@ import StartTimeIcon from '@mui/icons-material/EventAvailableOutlined';
 import EndTimeIcon from '@mui/icons-material/EventBusyOutlined';
 import { CircularProgress } from '@mui/material';
 import Preloader from "./Preloader";
+import en from './en.json';
+import al from './al.json';
+import { useLanguage} from './LanguageContext';
+
 
 const AuctionList = () => {
   const [auctions, setAuctions] = useState([]);
@@ -16,8 +20,9 @@ const AuctionList = () => {
   const [openedAuctionsMessage, setOpenedAuctionsMessage] = useState("");
   const [upcomingAuctionsMessage, setUpcomingAuctionsMessage] = useState("");
   const [preloader, setPrelaoder]=useState(true);
-
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  const translations = language === 'en' ? en : al;
 
   useEffect(() => {
     const fetchAuctions = async () => {
@@ -83,7 +88,7 @@ const AuctionList = () => {
   }
   return (
     <div className="auction-list-container">
-      <h1 className="auction-list-header">Opened Auctions</h1>
+      <h1 className="auction-list-header">{translations.OpenedAuctions}</h1>
       <div className="auctions-wrapper">
         {auctions.map((auction) => (
           <Card className="max-w-sm" key={auction.auctionId} id="OpenedAuctionCard">
@@ -136,7 +141,7 @@ const AuctionList = () => {
           </Card>
         ))}
       </div>
-      <h1 className="auction-list-header">Upcoming Auctions</h1>
+      <h1 className="auction-list-header">{translations.UpcomingAuctions}</h1>
       <div className="auctions-wrapper">
         {upcomingAuctions.map((auction) => (
        <Card className="max-w-sm" key={auction.auctionId} id="OpenedAuctionCard">

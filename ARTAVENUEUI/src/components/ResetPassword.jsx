@@ -2,9 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import axiosInstance from '../Axios';
 import toastr from 'toastr';
+import en from './en.json';
+import al from './al.json';
+import { useLanguage} from './LanguageContext';
 
 
 const ResetPassword = () => {
+  const { language } = useLanguage();
+  const translations = language === 'en' ? en : al;
     const [searchParams] = useSearchParams(); // Get search params from the hook
   const [token, setToken] = useState('');
     useEffect(() => {
@@ -50,7 +55,7 @@ const navigate=useNavigate()
     <div className="p-5">
       <form onSubmit={handleSubmit} className="flex w-96 flex-col space-y-5 rounded-lg border py-10 px-5 shadow-xl mx-auto">
         <div className="mx-auto mb-2 space-y-3">
-          <h1 className="text-3xl font-bold text-gray-700">Reset Password</h1>
+          <h1 className="text-3xl font-bold text-gray-700">{translations.ResetPassword}</h1>
         </div>
 
     
@@ -69,7 +74,7 @@ const navigate=useNavigate()
               htmlFor="newPassword"
               className="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-75 transform cursor-text select-none bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-blue-600"
             >
-              New Password
+              {tranlsations.NewPassword}
             </label>
           </div>
         </div>
@@ -88,12 +93,12 @@ const navigate=useNavigate()
               htmlFor="confirmNewPassword"
               className="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-75 transform cursor-text select-none bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-blue-600"
             >
-              Confirm New Password
+              {translations.ConfirmPassword}
             </label>
           </div>
         </div>
 
-        <button type="submit" className="rounded-lg bg-blue-600 py-3 font-bold text-white">Save</button>
+        <button type="submit" className="rounded-lg bg-blue-600 py-3 font-bold text-white">{translations.Save}</button>
       </form>
     </div>
   );

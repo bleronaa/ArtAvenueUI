@@ -8,6 +8,9 @@ import { IoLocationSharp } from "react-icons/io5";
 import { AiOutlineSearch, AiOutlineShoppingCart } from 'react-icons/ai';
 import { IoFilterOutline } from "react-icons/io5";
 import Preloader from './Preloader';
+import en from './en.json';
+import al from './al.json';
+import { useLanguage} from './LanguageContext';
 
 const Buy = () => {
   const { NewDiscoveries } = data;
@@ -23,6 +26,9 @@ const Buy = () => {
   const [buyNow, setBuyNow] = useState([]);
   const [categories, setCategories] = useState([]);
   const [prelaoder, setPreloader]=useState(true);
+
+  const { language } = useLanguage();
+  const translations = language === 'en' ? en : al;
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -138,7 +144,7 @@ const Buy = () => {
               <AiOutlineSearch className="search-icon" onClick={handleSearch} />
             </div>
           </div>
-          <p>Sort by Estimate</p>
+          <p>{translations.Sort}</p>
           <div>
             <input
               type="radio"
@@ -148,7 +154,7 @@ const Buy = () => {
               checked={sortBy === 'false'}
               onChange={handleSortByChange}
             />
-            <label htmlFor="estimate-asc">Low to High</label>
+            <label htmlFor="estimate-asc">{translations.Low}</label>
           </div>
           <div>
             <input
@@ -159,7 +165,7 @@ const Buy = () => {
               checked={sortBy === 'true'}
               onChange={handleSortByChange}
             />
-            <label htmlFor="estimate-desc">High to Low</label>
+            <label htmlFor="estimate-desc">{translations.High}</label>
           </div>
         </div>
         {/* <div className="filter-section">
@@ -178,7 +184,7 @@ const Buy = () => {
           ))}
         </div> */}
         <div className="filter-section">
-          <p>Category</p>
+          <p>{translations.Category}</p>
           {categories.map((category) => (
             <div key={category.categroyId}>
               <input

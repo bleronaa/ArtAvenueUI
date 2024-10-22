@@ -18,6 +18,9 @@ import { useNavigate } from 'react-router-dom';
 import CategoryIcon from '@mui/icons-material/Category';
 import LocationIcon from '@mui/icons-material/LocationOn';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import en from './en.json';
+import al from './al.json';
+import { useLanguage} from './LanguageContext';
 
 const Home = () => {
   const [homeData, setHomeData] = useState([]);
@@ -26,8 +29,9 @@ const Home = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [suggestedData, setSuggestedData] = useState([]);
-
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  const translations = language === 'en' ? en : al;
 
   useEffect(() => {
      fetchData();
@@ -73,8 +77,11 @@ const Home = () => {
     ? imageCarousel 
     : imageCarousel.filter(image => image.category === selectedCategory);
 
+ 
+  
   return (
     <>
+  
       <Carousel 
         showThumbs={false}
         autoPlay={false}
@@ -92,19 +99,18 @@ const Home = () => {
               {/* <p className='h2text'>{carousel.text}</p> */}
             </div>
             <div className="carousel-text-box">
-              <h2>"Discover extraordinary art at our auctions. Bid, win, and bring home timeless treasures that inspire and enrich your life."</h2>
+              <h2>{translations.sliderTxt}</h2>
               <div style={{display:'flex',flexDirection:'column', width:'50%', textAlign:'center',margin:'10px auto'}}>
-        <a href="/SignUp" class="mr-6 inline-flex h-12 items-center justify-center rounded bg-orange-600 px-6 font-medium tracking-wide text-white shadow-md outline-none transition duration-200 hover:bg-orange-400 focus:ring">Register Now</a>
-        <a href="/LogIn" style={{fontSize:'13px'}} aria-label="" class="inline-flex ml-4 pt-4 items-center font-semibold text-orange-600 transition-colors duration-200 hover:text-orange-400">Already have an account</a>
+        <a href="/SignUp" class="mr-6 inline-flex h-12 items-center justify-center rounded bg-orange-600 px-6 font-medium tracking-wide text-white shadow-md outline-none transition duration-200 hover:bg-orange-400 focus:ring">{translations.sliderBtn}</a>
+        <a href="/LogIn" style={{fontSize:'13px'}} aria-label="" class="inline-flex ml-4 pt-4 items-center font-semibold text-orange-600 transition-colors duration-200 hover:text-orange-400">{translations.sliderAcc}</a>
                 </div>
 
             </div>
           </div>
         ))}
       </Carousel>
-      
       <div className="category">
-      <h2>Shop by Category</h2>
+      <h2>{translations.ShopBy}</h2>
       {categories.map(category => (
         <button 
           key={category.categroyId} 
@@ -115,16 +121,16 @@ const Home = () => {
       ))}
     </div>
 
-        <h2 className='title text-center '>Suggested for you</h2>
+        <h2 className='title text-center '>{translations.Suggested}</h2>
        
         <div className="image-container">
           {suggestedData.map(item => (
-           <div  style={{ width: '20%' }}class="m-10 max-w-lg " onClick={()=>handleBidButtonClick(item.id)}>
+           <div  style={{ width: '20%' }}class="m-10 max-w-lg imgContainer " onClick={()=>handleBidButtonClick(item.id)}>
            <div class="rounded-lg border bg-white px-4 pt-8 pb-10 shadow-lg suggestedContainer">
              <div class="relative mx-auto h-40 rounded-full" style={{display:'flex',  justifyContent:'center'}}>
                <span class="absolute right-0 m-3 h-3 w-3 rounded-full bg-green-500 ring-2 ring-green-300 ring-offset-2"></span>
                {/* <img class="mx-auto h-auto w-full rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="" /> */}
-               <img className='h-40' style={{width:'90%'}} src={transformImagePath(item.images[0]?.photoFormat||'')} alt={item.artName} />
+               <img className='h-40'  src={transformImagePath(item.images[0]?.photoFormat||'')} alt={item.artName} />
              
              </div>
              <h1 class="my-1 text-center text-xl font-bold leading-8 text-gray-900">{item.artName}</h1>
@@ -133,11 +139,11 @@ const Home = () => {
         : item.description}</p>
              <ul class="mt-3 divide-y rounded bg-gray-100 py-2 px-3 text-gray-600 shadow-sm hover:text-gray-700 hover:shadow">
                <li class="flex items-center py-3 text-sm">
-                 <span><ShoppingCartIcon/> Start Price:</span>
+                 <span><ShoppingCartIcon/> {translations.StartPrice}:</span>
                  <span class="ml-auto"><span class="rounded-full bg-green-200 py-1 px-2 text-xs font-medium text-green-700">{item.startPrice}</span></span>
                </li>
                <li class="flex items-center py-3 text-sm">
-                 <span><CategoryIcon  />Category</span>
+                 <span><CategoryIcon  />{translations.Category}</span>
                  <span class="ml-auto">{item.categoryName}</span>
                </li>
              </ul>
@@ -156,17 +162,17 @@ const Home = () => {
     <div class="mb-16 lg:mb-0 lg:max-w-lg">
       <div class="mb-6 max-w-xl">
         <div>
-          <p class="bg-teal-accent-400 mb-2 inline-block rounded-full px-3 py-px text-xs font-semibold uppercase tracking-wider text-indigo-900">Welcome</p>
+          <p class="bg-teal-accent-400 mb-2 inline-block rounded-full px-3 py-px text-xs font-semibold uppercase tracking-wider text-indigo-900">{translations.Welcome}</p>
         </div>
         <h2 class="mb-6 max-w-lg text-3xl font-bold tracking-tight text-slate-700 sm:text-5xl sm:leading-snug">
-          Register Now <br />
-          <span class="inline-block font-bold text-orange-600">For Free</span>
+          {translations.RegisterNow} <br />
+          <span class="inline-block font-bold text-orange-600">{translations.ForFree}</span>
         </h2>
-        <p class="text-base text-gray-700 md:text-lg">Register now for free and get started in just a few simple steps. Our easy-to-follow process ensures that you can join us quickly and effortlessly, without any cost involved!</p>
+        <p class="text-base text-gray-700 md:text-lg">{translations.RegisterTxt}</p>
       </div>
       <div class="flex items-center">
-        <a href="/SignUp" class="mr-6 inline-flex h-12 items-center justify-center rounded bg-orange-600 px-6 font-medium tracking-wide text-white shadow-md outline-none transition duration-200 hover:bg-orange-400 focus:ring"> Get started </a>
-        <a href="/LogIn" aria-label="" class="inline-flex items-center font-semibold text-orange-600 transition-colors duration-200 hover:text-orange-400">Already have an account</a>
+        <a href="/SignUp" class="mr-6 inline-flex h-12 items-center justify-center rounded bg-orange-600 px-6 font-medium tracking-wide text-white shadow-md outline-none transition duration-200 hover:bg-orange-400 focus:ring">{translations.GetStarted} </a>
+        <a href="/LogIn" aria-label="" class="inline-flex items-center font-semibold text-orange-600 transition-colors duration-200 hover:text-orange-400">{translations.sliderAcc}</a>
       </div>
     </div>
   </div>
@@ -184,7 +190,7 @@ const Home = () => {
         </div>
         <div class="">
           <p class="text-2xl font-bold">1420</p>
-          <p class="text-sm">Monthly Users</p>
+          <p class="text-sm">{translations.MonthlyUsers}</p>
         </div>
       </div>
       <div class="flex py-2 px-2 text-gray-700">
@@ -197,7 +203,7 @@ const Home = () => {
         </div>
         <div class="">
           <p class="text-2xl font-bold">550</p>
-          <p class="text-sm">Graduates</p>
+          <p class="text-sm">{translations.Graduates}</p>
         </div>
       </div>
       <div class="flex py-2 px-2 text-gray-700">
@@ -208,7 +214,7 @@ const Home = () => {
         </div>
         <div class="">
           <p class="text-2xl font-bold">240</p>
-          <p class="text-sm">Fortune 500 Employed</p>
+          <p class="text-sm">{translations.FortuneEmployed}</p>
         </div>
       </div>
     </div>
@@ -223,24 +229,24 @@ const Home = () => {
         <section class="w-screen bg-white py-10 text-gray-800">
   <div class="container mx-auto w-full max-w-screen-xl">
     <div class="w-full"> 
-      <h2 class="text-center text-3xl font-extrabold">Our Values</h2>
-      <p class="mx-auto mb-4 max-w-xl py-2 text-center text-gray-600 sm:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio reprehenderit accusamus incidunt.</p>
+      <h2 class="text-center text-3xl font-extrabold">{translations.OurValues}</h2>
+      <p class="mx-auto mb-4 max-w-xl py-2 text-center text-gray-600 sm:text-lg">{translations.OurValuesTxt}</p>
     </div>
     <div class="flex flex-col lg:flex-row">
       <div class="w-full p-4 text-left lg:w-1/3">
         <hr class="mb-4 h-1.5 w-1/4 bg-blue-600" />
-        <h3 class="font-sans text-4xl font-light leading-10">INNOVATE.</h3>
-        <p class="my-5 text-gray-600"> Distinctio assumenda tenetur sequi, nemo, error illum dolorem dolor voluptatum beatae dignissimos nulla dolores delectus similique blanditiis praesentium deserunt?</p>
+        <h3 class="font-sans text-4xl font-light leading-10">{translations.INNOVATE}</h3>
+        <p class="my-5 text-gray-600">{translations.INNOVATETxt}</p>
       </div>
       <div class="w-full p-4 text-left lg:w-1/3">
         <hr class="mb-4 h-1.5 w-1/4 bg-blue-600" />
-        <h3 class="font-sans text-4xl font-light leading-10">GROW.</h3>
-        <p class="my-5 text-gray-600">Deleniti earum nulla repudiandae esse delectus. Dolorem, hic animi sit pariatur ducimus commodi tempore.</p>
+        <h3 class="font-sans text-4xl font-light leading-10">{translations.GROW}</h3>
+        <p class="my-5 text-gray-600">{translations.GROWTxt}</p>
       </div>
       <div class="w-full p-4 text-left lg:w-1/3">
         <hr class="mb-4 h-1.5 w-1/4 bg-blue-600" />
-        <h3 class="font-sans text-4xl font-light leading-10">SERVE.</h3>
-        <p class="my-5 text-gray-600">Lorem ipsum dolor, situos unde voluptatibus corrupti similique aperiam. Molestias corporis numquam quos dolorem culpa ullam ad. Ipsa quidem excepturi mollitia? Expedita, sequi?</p>
+        <h3 class="font-sans text-4xl font-light leading-10">{translations.SERVE}</h3>
+        <p class="my-5 text-gray-600">{translations.SERVETxt}</p>
       </div>
     </div>
   </div>
@@ -251,26 +257,26 @@ const Home = () => {
         <div className=" content about-auction-container">
           <div className='about-auction'>
             <span><BsEasel2 /></span>
-            <h3>Various options</h3>
-            <p>Lots of different artwork every week. Various paintings, sculptures according to different categories</p>
+            <h3>{translations.VariousOptions}</h3>
+            <p>{translations.VariousOptionsTxt}</p>
           </div>
           <div className='about-auction'>
             <span><TbCurrencyDollar /></span>
-            <h3>Reasonable prices</h3>
-            <p>There are no additional fees. Reasonable and clear pricing. You only pay for the art not including shipping.</p>
+            <h3>{translations.ReasonablePrices}</h3>
+            <p>{translations.ReasonablePricesTxt}</p>
           </div>
           <div className='about-auction'>
             <span><RiAuctionLine /></span>
-            <h3>Art auctions</h3>
-            <p>Fast and free registration. Easy to use website.Auctions available online 24 hours a day.</p>
+            <h3>{translations.ArtAuctions}</h3>
+            <p>{translations.ArtAuctionsTxt}</p>
           </div>
           <div className='about-auction'>
             <span><FiTruck /></span>
-            <h3>Transport</h3>
-            <p>Reliable carrier. It doesn't matter where you are, as long as you like the artwork, the order will come to you.</p>
+            <h3>{translations.Transport}</h3>
+            <p>{translations.TransportTxt}</p>
           </div>
         </div>
-        <h2 className='title'>New Arrivals</h2>
+        <h2 className='title'>{translations.NewArrivals}</h2>
         <div className="discoveries">
         {/* {suggestedData.map(item => (
             <div className="image-item" key={item.id}>
@@ -321,8 +327,8 @@ const Home = () => {
             <img src={bg} width={500}/>
           </div>
           <div className="us">
-            <h2>Find Art You Love</h2>
-            <p>“At B&B, we make it our mission to help you discover and buy from the best emerging artists around the world. Whether you’re looking to discover a new artist, add a statement piece to your home, or commemorate an important life event, Saatchi Art is your portal to thousands of original works by today’s top artists.”</p>
+            <h2>{translations.FindArt}</h2>
+            <p>{translations.FindArtTxt}</p>
           </div>
         </div>
   

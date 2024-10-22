@@ -1,12 +1,19 @@
 
 .login-page {
-  position: relative;
+  /* position: relative;
   height: 100vh;
   background: url('../images/banner.png') no-repeat center center/cover;
-   
+    */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
   .Signup-container {
-    position: absolute;
+    /* position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -14,69 +21,92 @@
   padding: 20px;
   border-radius: 8px;
   background-color: whitesmoke;
-  box-shadow: 0 0 10px rgba(56, 30, 4, 0.2);
+  box-shadow: 0 0 10px rgba(56, 30, 4, 0.2); */
+  background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: auto;
+  height: auto;
+  text-align: center;
   }
+  .form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  /* margin-top: 5px; */
+  font-size: 16px;
+}
+.form-group label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
   .Signup-container h2{
-  margin-bottom: 5px;
   font-size: 20px;
   }
-  .form-group{
-    padding: 10px;
-  }
-  .form-group input{
-    height:55px;
-    width:290px;
-  }
+
+
    
   .Signup-container h2 {
     margin-left: 50px;
     font-weight: 500;
     color:#675222;
   }
-  .form-group input {
-    width: 100%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
+ 
   
   .submitSignupButton {
-    width: 30%;
-    margin-top:20px ;
-    margin:20px auto;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    background-color: #675222;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    font-size: 16px;
-    cursor: pointer;
+  background-color: #f4a261;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   }
+  .submitSignupButton:hover {
+    background-color: #e76f51;
+  }
+
   .Signuplinks{
+    margin-top: 20px;
     display: flex;
-    justify-content: space-around;
-    margin-top: 15px;
-    font-size: 15px;
+    justify-content: space-between;
   }
   .links a:hover{
     color:blue
   }
  
-  input[type="radio"] {
-    width: 10px;  /* Adjust the size of the radio button */
-    height: 10px; /* Adjust the size of the radio button */
-    margin-right: 5px;
-  }
-  
-
   input[type="checkbox"] {
-    width: 10px;  /* Adjust the size of the radio button */
-    height: 10px  ; /* Adjust the size of the radio button */
+    width: 10px;  
+    height: 10px  ;
     margin-right: 5px;
   }
   .image{
     width: 50%;
+  }
+  .form-group input:focus:invalid {
+    border-color: red;
+  }
+  
+  /* Optionally, to make the border stand out more when invalid */
+  .form-group input:focus:invalid {
+    outline: none;
+    border-color: red;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  }  
+  .form-group{
+    width: 100%;
+  }
+  @media (max-width: 768px) {
+    .Signup-container {
+      width: 90%;
+      padding: 20px;
+    }
   }

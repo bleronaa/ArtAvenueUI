@@ -114,13 +114,13 @@
       font-size: 20px;
       width:40px;
     }
-  .content{
-    align-items: center;
+ 
+  .content {
     display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    width: 100%;
+    justify-content: space-between; /* Distribute the items evenly in the row */
+    flex-wrap: wrap; /* Wrap items on smaller screens */
     background-color: #f0f0e5;
+
   }
   .about-auction-container{
     flex-wrap: wrap;
@@ -129,24 +129,22 @@
     padding: 5rem ;
     row-gap: 3rem
   }
-    .about-auction{
-      margin-top: -40px;
-      max-width: 275px;
-      width: 100%;
-      order: 0;
-    box-sizing: border-box;
-    font-size: 100%;
-    font: inherit;
-    font-family:'Times New Roman', Times, serif;
-    margin: 0;
-    padding-left: 40px;
-    padding-right: 40px;
-    vertical-align: initial;
-  }
-  .about-auction span {
-    align-items: center;
+ 
+  .about-auction {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center; /* Center the icon, h3, and p horizontally */
+    text-align: center; /* Ensure the text is centered */
+    width: 100%; /* Adjust width to fit items in a row */
+    margin-bottom: 20px; /* Add some spacing at the bottom */
+  }
+
+.about-auction span {
+  font-size: 40px; /* Adjust icon size */
+  margin-bottom: 10px; /* Add space between icon and text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .about-auction span svg {
   font-size: 35px;
@@ -345,7 +343,31 @@
     box-shadow:  3px 2px lightgray;
     transition: box-shadow,0.5s ease-in-out;
   }
-
+  @media only screen and (max-width:425px){
+    .image-container{
+      display: flex;
+      flex-direction:column;
+    }
+    .imgContainer{
+      width: auto !important;
+    }
+  }
+  @media (min-width: 425px) and (max-width: 725px){
+  
+    .imgContainer {
+      width: 45% !important; /* Set the width of each item to fit two per row */
+      margin: 5px !important;  /* Add some space between the items */
+    }
+  }
+  @media (min-width:725px) and (max-width:1024px ){
+    .imgContainer {
+      width: 25% !important; /* Set the width of each item to fit two per row */
+      margin: 20px !important;  /* Add some space between the items */
+    }
+    .suggestedContainer{
+      height: 420px;
+    }
+  }
   @media only screen and (max-width: 600px) {
     .img {
       margin-right: auto;
@@ -415,4 +437,23 @@
       margin-left: auto;
       margin-right: auto;
   }
+  }
+  @media (min-width: 425px) and (max-width: 600px) {
+    .about-auction {
+      width: 48%; /* Two items per row */
+    }
+  }
+  
+  /* Responsive design for medium devices (600px to 1024px) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .about-auction {
+      width: 48%; /* Two items per row */
+    }
+  }
+  
+  /* Responsive design for larger screens (1025px and up) */
+  @media (min-width: 1025px) {
+    .about-auction {
+      width: 22%; /* Four items per row */
+    }
   }

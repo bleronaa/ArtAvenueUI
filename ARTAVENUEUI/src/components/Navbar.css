@@ -131,6 +131,14 @@ nav {
   text-decoration: none;
   color: #333;
 }
+.flags {
+  display: flex !important;         /* Use flexbox for layout */
+  align-items: center;   /* Center items vertically */
+}
+
+.flag-icon {
+  margin-left: 10px;    /* Space between flags */
+}
 
 /* For 640 Resolution */
 @media only screen and (max-width: 640px) {

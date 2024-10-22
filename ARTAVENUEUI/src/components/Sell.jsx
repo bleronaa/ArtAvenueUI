@@ -11,6 +11,9 @@ import { useNavigate } from 'react-router-dom';
 import toastr from 'toastr';
 import Tooltip from '@mui/material/Tooltip';
 import { useAuth } from '../../context';
+import en from './en.json';
+import al from './al.json';
+import { useLanguage} from './LanguageContext';
 
 
 
@@ -21,6 +24,9 @@ const Sell = () => {
   useEffect(() => {
     console.log('testssss',userData);
   }, [userData]);
+  
+  const { language } = useLanguage();
+  const translations = language === 'en' ? en : al;
 
   const [activeStep, setActiveStep] = useState(0);
   const [showHowWorks, setShowHowWorks] = useState(true);
@@ -121,11 +127,11 @@ const Sell = () => {
         case 1:
           return (
             <div className='general-container'>
-              <Typography variant="h6" gutterBottom>Tell us about your item</Typography>
-              <Typography variant="h4" gutterBottom>General</Typography>
-              <Typography variant="h6" gutterBottom>Item's country of Origin</Typography>
+              <Typography variant="h6" gutterBottom>{translations.TellUs}</Typography>
+              <Typography variant="h4" gutterBottom>{translations.General}</Typography>
+              <Typography variant="h6" gutterBottom>{translations.ItemsCountry}</Typography>
               <FormControl fullWidth sx={{ mb: 2 }}>
-                <InputLabel>Country</InputLabel>
+                <InputLabel>{translations.Country}</InputLabel>
                 <Select
                   value={formData.country}
                   onChange={(e) => setFormData({ ...formData, country: e.target.value })}
@@ -135,7 +141,7 @@ const Sell = () => {
                   <MenuItem value="Kosova">Kosova</MenuItem>
                 </Select>
               </FormControl>
-              <Typography variant="h6" gutterBottom>Artist</Typography>
+              <Typography variant="h6" gutterBottom>{translations.Artist}</Typography>
               <TextField
                 fullWidth
                 sx={{ mb: 2 }}
@@ -144,7 +150,7 @@ const Sell = () => {
                 value={formData.artist}
                 onChange={(e) => setFormData({ ...formData, artist: e.target.value })}
               />
-              <Typography variant="h6" gutterBottom>Title of Work</Typography>
+              <Typography variant="h6" gutterBottom>{translations.Title}</Typography>
               <TextField
                 fullWidth
                 sx={{ mb: 2 }}
@@ -154,7 +160,7 @@ const Sell = () => {
                 onChange={(e) => setFormData({ ...formData, titleOfWork: e.target.value })}
               />
 
-<Typography variant="h6" gutterBottom>Description</Typography>
+<Typography variant="h6" gutterBottom>{translations.Description}</Typography>
               <TextField
                 fullWidth
                 sx={{ mb: 2 }}
@@ -164,7 +170,7 @@ const Sell = () => {
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               />
 
-<Typography variant="h6" gutterBottom>Year</Typography>
+<Typography variant="h6" gutterBottom>{translations.Year}</Typography>
               <TextField
                 fullWidth
                 sx={{ mb: 2 }}
@@ -173,10 +179,10 @@ const Sell = () => {
                 value={formData.year}
                 onChange={(e) => setFormData({ ...formData, year: e.target.value })}
               />
-              <Typography variant="h4" gutterBottom>Measurements</Typography>
-              <Typography variant="h6" gutterBottom>Measurement Unit</Typography>
+              <Typography variant="h4" gutterBottom>{translations.Measurements}</Typography>
+              <Typography variant="h6" gutterBottom>{translations.MeasurementUnit}</Typography>
               <FormControl fullWidth sx={{ mb: 2 }}>
-                <InputLabel>Unit</InputLabel>
+                <InputLabel>{translations.Unit}</InputLabel>
                 <Select
                   value={formData.measurementUnit}
                   onChange={(e) => setFormData({ ...formData, measurementUnit: e.target.value })}
@@ -213,7 +219,7 @@ const Sell = () => {
                 value={formData.framedDepth}
                 onChange={(e) => setFormData({ ...formData, framedDepth: e.target.value })}
               />
-              <Typography variant="h4" gutterBottom>Set Price</Typography>
+              <Typography variant="h4" gutterBottom>{translations.SetPrice}</Typography>
               <TextField
                 fullWidth
                 sx={{ mb: 2 }}
@@ -264,7 +270,7 @@ const Sell = () => {
              <div className='upload'>
               <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', textAlign: 'center', width: '100%' }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '60%' }}>
-                  <Typography variant="h6" gutterBottom>Upload Your Photos and Documents</Typography>
+                  <Typography variant="h6" gutterBottom>{translations.UploadYourPhotos}</Typography>
                   <TextField
                     fullWidth
                     sx={{ mb: 2 }}
@@ -307,20 +313,20 @@ const Sell = () => {
                   />
                 </Box>
                 <Box sx={{ width: '35%', textAlign: 'left', pl: 2 }}>
-                  <Typography variant="h6" gutterBottom>Requirements:</Typography>
-                  <Typography variant="body2">Photos: JPEG, PNG, GIF</Typography>
-                  <Typography variant="body2">Documents: PDF, CSV, Word, Excel, Powerpoint</Typography>
-                  <Typography variant="body2">Minimum Dimensions: 100px</Typography>
-                  <Typography variant="body2">File Size Limit: 20 MB</Typography>
-                  <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>Tips:</Typography>
-                  <Typography variant="body2">1. One photo of entire item as close as possible</Typography>
-                  <Typography variant="body2">2. One detail shot, 25% of item unless item very small</Typography>
-                  <Typography variant="body2">3. Take in bright day light. Turn on flash</Typography>
-                  <Typography variant="body2">4. Take at slight angle off center to avoid reflection and flash back</Typography>
-                  <Typography variant="body2">5. Check clarity on computer before uploading. Reshoot if not in focus</Typography>
-                  <Typography variant="body2">6. Remove from glass when possible</Typography>
-                  <Typography variant="body2">7. Show scale and context; details and texture</Typography>
-                  <Typography variant="body2">8. Use your own photos: we cannot accept a photograph of a photo of the work.</Typography>
+                  <Typography variant="h6" gutterBottom>{translations.Requirements}:</Typography>
+                  <Typography variant="body2">{translations.Photos}</Typography>
+                  <Typography variant="body2">{translations.Documents}</Typography>
+                  <Typography variant="body2">{translations.Minimum}</Typography>
+                  <Typography variant="body2">{translations.FileSize}</Typography>
+                  <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>{translations.Tips}</Typography>
+                  <Typography variant="body2">{translations.one}</Typography>
+                  <Typography variant="body2">{translations.two}</Typography>
+                  <Typography variant="body2">{translations.three}</Typography>
+                  <Typography variant="body2">{translations.four}</Typography>
+                  <Typography variant="body2">{translations.five}</Typography>
+                  <Typography variant="body2">{translations.six}</Typography>
+                  <Typography variant="body2">{translations.seven}</Typography>
+                  <Typography variant="body2">{translations.eight}</Typography>
                 </Box>
               </Box>
               </div>
@@ -442,39 +448,39 @@ const Sell = () => {
 
   return (
     <div>
-      <h1 className='choose-Category'>Choose your category</h1>
+      <h1 className='choose-Category'>{translations.Choose}</h1>
       {showHowWorks && (
         <div className='howWorks'>
-          <h1>How It Works</h1>
-          <p className='disclaimer'>Disclaimer: Preliminary estimates may be subject to change upon inspection of the item.</p>
+          <h1>{translations.Works}</h1>
+          <p className='disclaimer'>{translations.Disclaimer}</p>
           <div className='steps'>
             <div className='step'>
               <IoSearchOutline />
-              <h2>Tell us about your Item</h2>
-              <p>Add dimensions, history and any documentation</p>
+              <h2>{translations.TellUs}</h2>
+              <p>{translations.AddDimensions}</p>
             </div>
             <div className='step'>
               <RiImageAddFill />
-              <h2>Upload Photos</h2>
-              <p>Take front and back images of your item</p>
+              <h2>{translations.Upload}</h2>
+              <p>{translations.FrontBack}</p>
             </div>
             <div className='step'>
               <MdDone />
-              <h2>Review and Submit</h2>
-              <p>All set! Our specialists will review your submission</p>
+              <h2>{translations.Review}</h2>
+              <p>{translations.AllSet}</p>
             </div>
           </div>
           {!userData.data?.id ? (
   <Tooltip  title="You need to be logged in to sell an Art Item">
     <span>
       <button style={{cursor:'not-allowed'}} className="bid-button next" disabled>
-        Next
+      {translations.Next}
       </button>
     </span>
   </Tooltip>
 ) : (
   <button className="bid-button next" onClick={handleNext}>
-    Next
+    {translations.Next}
   </button>
 )}
         </div>
@@ -495,7 +501,7 @@ const Sell = () => {
           <div>
             {activeStep === steps.length ? (
               <div>
-                <Typography sx={{ mt: 2, mb: 1 }}>Review and confirm your submission.</Typography>
+                <Typography sx={{ mt: 2, mb: 1 }}>{translations.ReviewAndSubmit}</Typography>
                 {getStepContent(activeStep)}
               </div>
             ) : (
@@ -509,11 +515,11 @@ const Sell = () => {
                     sx={{ mr: 1 }}
                     style={{marginBottom:'30px'}}
                   >
-                    Back
+                    {translations.Back}
                   </Button>
                   {activeStep < steps.length - 1 && (
                                         <Button variant="contained" color="primary" onClick={handleNext} style={{marginBottom:'30px'}}>
-                                        Next
+                                        {translations.Next}
                                       </Button>
                                     )}
                                   </Box>
