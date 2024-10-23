@@ -96,16 +96,7 @@ const AuctionList = () => {
             <span className="text-sm  text-green-500 dark:text-green-400">
              <HourglassEmptyOutlinedIcon/> <AuctionTimer endTime={auction.auctionEndDate} />
               </span>
-              <Dropdown inline label="">
-                <Dropdown.Item>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Some info
-                  </a>
-                </Dropdown.Item>
-              </Dropdown>
+           
             </div>
           
             <div className="flex flex-col items-center pb-10">
@@ -149,16 +140,6 @@ const AuctionList = () => {
        <span className="text-sm  text-green-500 dark:text-green-400">
            Time Remaining: <AuctionTimer endTime={auction.auctionEndDate} />
          </span>
-         <Dropdown inline label="">
-           <Dropdown.Item>
-             <a
-               href="#"
-               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-             >
-               Some info
-             </a>
-           </Dropdown.Item>
-         </Dropdown>
        </div>
      
        <div className="flex flex-col items-center pb-10">

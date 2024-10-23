@@ -110,7 +110,13 @@ const Sell = () => {
     setFormData({ ...formData, category });
     handleNext();
   };
-
+  // Function to handle number input
+  const handleNumberChange = (e, field) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) {
+      setFormData({ ...formData, [field]: value });
+    }
+  };
   const getStepContent = (step) => {
     switch (step) {
       case 0:
@@ -136,6 +142,7 @@ const Sell = () => {
                   value={formData.country}
                   onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                   label="Country"
+                  required
                 >
                   <MenuItem value="Albania">Albania</MenuItem>
                   <MenuItem value="Kosova">Kosova</MenuItem>
@@ -149,6 +156,7 @@ const Sell = () => {
                 variant="outlined"
                 value={formData.artist}
                 onChange={(e) => setFormData({ ...formData, artist: e.target.value })}
+                required
               />
               <Typography variant="h6" gutterBottom>{translations.Title}</Typography>
               <TextField
@@ -158,6 +166,7 @@ const Sell = () => {
                 variant="outlined"
                 value={formData.titleOfWork}
                 onChange={(e) => setFormData({ ...formData, titleOfWork: e.target.value })}
+                required
               />
 
 <Typography variant="h6" gutterBottom>{translations.Description}</Typography>
@@ -168,17 +177,24 @@ const Sell = () => {
                 variant="outlined"
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                required
               />
 
 <Typography variant="h6" gutterBottom>{translations.Year}</Typography>
-              <TextField
-                fullWidth
-                sx={{ mb: 2 }}
-                label="Year"
-                variant="outlined"
-                value={formData.year}
-                onChange={(e) => setFormData({ ...formData, year: e.target.value })}
-              />
+        <TextField
+          fullWidth
+          sx={{ mb: 2 }}
+          label="Year"
+          variant="outlined"
+          value={formData.year}
+          onChange={(e) => setFormData({ ...formData, year: e.target.value })}
+          required
+          type="number"
+          InputProps={{
+            inputProps: { min: 0 }, // Ensures only positive numbers can be entered
+          }}
+        
+        />
               <Typography variant="h4" gutterBottom>{translations.Measurements}</Typography>
               <Typography variant="h6" gutterBottom>{translations.MeasurementUnit}</Typography>
               <FormControl fullWidth sx={{ mb: 2 }}>
@@ -187,6 +203,7 @@ const Sell = () => {
                   value={formData.measurementUnit}
                   onChange={(e) => setFormData({ ...formData, measurementUnit: e.target.value })}
                   label="Unit"
+                  required
                 >
                   <MenuItem value="inches">Inches</MenuItem>
                   <MenuItem value="millimeters">Millimeters</MenuItem>
@@ -202,6 +219,7 @@ const Sell = () => {
                 variant="outlined"
                 value={formData.framedHeight}
                 onChange={(e) => setFormData({ ...formData, framedHeight: e.target.value })}
+                required
               />
               <TextField
                 fullWidth
@@ -210,6 +228,7 @@ const Sell = () => {
                 variant="outlined"
                 value={formData.framedWidth}
                 onChange={(e) => setFormData({ ...formData, framedWidth: e.target.value })}
+                required
               />
               <TextField
                 fullWidth
@@ -218,6 +237,7 @@ const Sell = () => {
                 variant="outlined"
                 value={formData.framedDepth}
                 onChange={(e) => setFormData({ ...formData, framedDepth: e.target.value })}
+                required
               />
               <Typography variant="h4" gutterBottom>{translations.SetPrice}</Typography>
               <TextField
@@ -227,6 +247,11 @@ const Sell = () => {
                 variant="outlined"
                 value={formData.pricePaid}
                 onChange={(e) => setFormData({ ...formData, pricePaid: e.target.value })}
+                required
+                type="number"
+                InputProps={{
+                  inputProps:{min:0},
+                }}
               />
              
               {/* <Typography variant="h6" gutterBottom>Currency</Typography> */}
@@ -249,6 +274,11 @@ const Sell = () => {
                 variant="outlined"
                 value={formData.yearPaid}
                 onChange={(e) => setFormData({ ...formData, yearPaid: e.target.value })}
+                required
+                type="number"
+                InputProps={{
+                  inputProps:{min:0},
+                }}
               />
 
         <TextField
@@ -259,7 +289,8 @@ const Sell = () => {
          value={formData.note}
           onChange={(e) => setFormData({ ...formData, note: e.target.value })} // Fixed the prop to "onChange"
          multiline
-         rows={4} />
+         rows={4}
+         required />
 
             </div>
             
@@ -280,6 +311,7 @@ const Sell = () => {
                     label="Photo from the front"
                     InputLabelProps={{ shrink: true }}
                     variant="outlined"
+                    required
                   />
                   <TextField
                     fullWidth
@@ -290,6 +322,7 @@ const Sell = () => {
                     label="Photo from the back"
                     InputLabelProps={{ shrink: true }}
                     variant="outlined"
+                    required
                   />
                   <TextField
                     fullWidth
@@ -300,6 +333,7 @@ const Sell = () => {
                     label="Details"
                     InputLabelProps={{ shrink: true }}
                     variant="outlined"
+                    required
                   />
                   <TextField
                     fullWidth
@@ -310,6 +344,7 @@ const Sell = () => {
                     label="Signature of the painting"
                     InputLabelProps={{ shrink: true }}
                     variant="outlined"
+                    required
                   />
                 </Box>
                 <Box sx={{ width: '35%', textAlign: 'left', pl: 2 }}>
@@ -492,11 +527,11 @@ const Sell = () => {
 
           <Stepper activeStep={activeStep} alternativeLabel sx={{ width: '90%', maxWidth: '600px', mb: 4 }}>
             
-            {steps.map((label, index) => (
-              <Step key={index}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
+          {steps.map((label) => (
+          <Step key={label}>
+            <StepLabel>{label}</StepLabel>
+          </Step>
+        ))}
           </Stepper>
           <div>
             {activeStep === steps.length ? (
