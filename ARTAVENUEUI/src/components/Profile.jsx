@@ -33,23 +33,22 @@ const Profile = () => {
     <>
       <div className="mx-auto my-10 flex max-w-xs flex-col items-center rounded-xl border px-4 py-4 text-center md:max-w-lg md:flex-row md:items-start md:text-left">
         <div className="mb-4 md:mr-6 md:mb-0">
-          <img className="h-56 rounded-lg object-cover md:w-56" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="" />
+          <img className="h-56 rounded-lg object-cover md:w-56" src={`https://localhost:44340/${clientDetails.photo}`} alt="Client Photo" />
         </div>
         <div className="">
-          <p className="text-xl font-medium text-gray-700">{clientDetails.clientName}</p>
-          <p className="mb-4 text-sm font-medium text-gray-500">Senior Editor</p> 
+          <p className="text-xl font-medium mb-2 text-gray-700">{clientDetails.clientName} {clientDetails.clientLastName}</p>
           <div className="flex space-x-2">
             <div className="flex flex-col items-center rounded-xl bg-gray-100 px-4 py-2">
-              <p className="text-sm font-medium text-gray-500">Articles</p>
-              <p className="text-3xl font-medium text-gray-600">13</p>
+              <p className="text-sm font-medium text-gray-500">Total Sellings</p>
+              <p className="text-3xl font-medium text-gray-600">{clientDetails.sellings}</p>
             </div>
             <div className="flex flex-col items-center rounded-xl bg-gray-100 px-4 py-2">
-              <p className="text-sm font-medium text-gray-500">Papers</p>
-              <p className="text-3xl font-medium text-gray-600">7</p>
+              <p className="text-sm font-medium text-gray-500">Total Bids</p>
+              <p className="text-3xl font-medium text-gray-600">{clientDetails.totalBids}</p>
             </div>
             <div className="flex flex-col items-center rounded-xl bg-gray-100 px-4 py-2">
-              <p className="text-sm font-medium text-gray-500">Followers</p>
-              <p className="text-3xl font-medium text-gray-600">2.5k</p>
+              <p className="text-sm font-medium text-gray-500">Current Bids</p>
+              <p className="text-3xl font-medium text-gray-600">{clientDetails.currentBids}</p>
             </div>
             <div className=""></div>
           </div>

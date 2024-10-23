@@ -55,6 +55,7 @@ const Buy = () => {
   useEffect(() => {
     const fetchBuyNow = async () => {
       try {
+        console.log('ee')
         const response = await axios.get('https://localhost:44340/api/ArtItem/getArtItemBuyNow', {
           params: {
             searchInput: searchText.trim(),
