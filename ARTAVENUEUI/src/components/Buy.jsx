@@ -33,7 +33,7 @@ const Buy = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('https://localhost:44340/api/Category/getCategoryList');
+        const response = await axios.get('http://140.82.37.220:82/api/Category/getCategoryList');
         setCategories(response.data);
       } catch (err) {
         console.log(err.message);
@@ -56,7 +56,7 @@ const Buy = () => {
     const fetchBuyNow = async () => {
       try {
         console.log('ee')
-        const response = await axios.get('https://localhost:44340/api/ArtItem/getArtItemBuyNow', {
+        const response = await axios.get('http://140.82.37.220:82/api/ArtItem/getArtItemBuyNow', {
           params: {
             searchInput: searchText.trim(),
             SortByDesc:sortBy,
@@ -231,7 +231,7 @@ const Buy = () => {
 };
 const transformImagePath = (path) => {
   if (!path) return ''; // Return an empty string or a default image URL if path is undefined
-  const baseURL = 'https://localhost:44340/ArtItem-photos/';
+  const baseURL = 'http://140.82.37.220:82/ArtItem-photos/';
   const fileName = path.split('\\').pop(); // Extract the filename from the path
   return `${baseURL}${fileName}`;
 };
