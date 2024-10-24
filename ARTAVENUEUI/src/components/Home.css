@@ -360,6 +360,122 @@
     display: flex;
     justify-content: space-between;
   }
+
+  /* Privacy Policy */
+  .privacy-policy-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .privacy-header {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .privacy-subheader {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  
+  .privacy-text {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .privacy-list {
+    padding-left: 20px;
+    font-size: 16px;
+    color: #333;
+  }
+  /* Terms of Service */
+  .terms-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .terms-header {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .terms-subheader {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  
+  .terms-text {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .terms-list {
+    padding-left: 20px;
+    list-style-type: disc;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .terms-list li {
+    margin-bottom: 10px;
+  }
+  /* Cookie Policy */
+  .cookie-policy-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .cookie-header {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .cookie-subheader {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  
+  .cookie-text {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .cookie-list {
+    padding-left: 20px;
+    list-style-type: disc;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .cookie-list li {
+    margin-bottom: 10px;
+  }
+  
+  .cookie-list a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .cookie-list a:hover {
+    text-decoration: underline;
+  }
+  
+  
   @media only screen and (max-width:425px){
     .image-container{
       display: flex;
@@ -381,6 +497,7 @@
     } 
   
   }
+
   @media (min-width: 425px) and (max-width: 725px){
   
     .imgContainer {

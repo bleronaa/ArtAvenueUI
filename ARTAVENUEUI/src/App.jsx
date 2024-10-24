@@ -16,6 +16,9 @@ import { AuthProvider } from '../context.jsx'
 import ForgotPassword from './components/ForgotPassword.jsx';
 import ResetPassword from './components/ResetPassword.jsx';
 import { LanguageProvider } from './components/LanguageContext.jsx';
+import PrivacyPolicy from './components/PrivacyPolicy.jsx';
+import TermsOfService from './components/TermsofService.jsx';
+import CookiePolicy from './components/CookiePolicy';
 
   function App() {
     return (
@@ -38,6 +41,9 @@ import { LanguageProvider } from './components/LanguageContext.jsx';
             <Route path="/profile/:clientId" element={<Profile />} />
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/resetpassword" element={<ResetPassword />} />
+            <Route path="/PrivacyPolicy" element={<PrivacyPolicy/>}/>
+            <Route path="/TermsOfService" element={<TermsOfService/>}/>
+            <Route path="/CookiePolicy" element={<CookiePolicy/>}/>
           </Routes>
         </LanguageProvider>
       </AuthProvider>

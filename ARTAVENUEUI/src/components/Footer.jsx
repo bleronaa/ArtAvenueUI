@@ -34,10 +34,9 @@ const Footer = () => {
           <div className="column">
             <div className="legal">
               <h3>Legal</h3>
-              <a href="#" className='header'>Privacy Policy</a>
-              <a href="#" className='header'>Terms of Service</a>
-              <a href="#" className='header'>Cookie Policy</a>
-              <a href="#" className='header'>Disclaimer</a>
+              <a href="/PrivacyPolicy" className='header'>Privacy Policy</a>
+              <a href="/TermsOfService" className='header'>Terms of Service</a>
+              <a href="/CookiePolicy" className='header'>Cookie Policy</a>
             </div>
           </div>
           <div className="column">
