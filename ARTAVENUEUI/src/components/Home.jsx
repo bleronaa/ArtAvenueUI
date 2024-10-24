@@ -100,9 +100,9 @@ const Home = () => {
             </div>
             <div className="carousel-text-box">
               <h2>{translations.sliderTxt}</h2>
-              <div style={{display:'flex',flexDirection:'column', width:'50%', textAlign:'center',margin:'10px auto'}}>
-        <a href="/SignUp" class="mr-6 inline-flex h-12 items-center justify-center rounded bg-orange-600 px-6 font-medium tracking-wide text-white shadow-md outline-none transition duration-200 hover:bg-orange-400 focus:ring">{translations.sliderBtn}</a>
-        <a href="/LogIn" style={{fontSize:'13px'}} aria-label="" class="inline-flex ml-4 pt-4 items-center font-semibold text-orange-600 transition-colors duration-200 hover:text-orange-400">{translations.sliderAcc}</a>
+              <div className='link-div'>
+        <a href="/SignUp" class=" inline-flex h-12 items-center justify-center rounded bg-orange-600 px-6 font-medium tracking-wide text-white shadow-md outline-none transition duration-200 hover:bg-orange-400 focus:ring">{translations.sliderBtn}</a>
+        <a href="/LogIn" style={{fontSize:'13px'}} aria-label="" class="inline-flex mt-5 ml-8 items-center font-semibold text-orange-600 transition-colors duration-200 hover:text-orange-400">{translations.sliderAcc}</a>
                 </div>
 
             </div>
@@ -171,7 +171,7 @@ const Home = () => {
         <p class="text-base text-gray-700 md:text-lg">{translations.RegisterTxt}</p>
       </div>
       <div class="flex items-center">
-        <a href="/SignUp" class="mr-6 inline-flex h-12 items-center justify-center rounded bg-orange-600 px-6 font-medium tracking-wide text-white shadow-md outline-none transition duration-200 hover:bg-orange-400 focus:ring">{translations.GetStarted} </a>
+        <a href="/SignUp" class="inline-flex h-12 items-center justify-center rounded bg-orange-600 px-6 font-medium tracking-wide text-white shadow-md outline-none transition duration-200 hover:bg-orange-400 focus:ring">{translations.GetStarted} </a>
         <a href="/LogIn" aria-label="" class="inline-flex items-center font-semibold text-orange-600 transition-colors duration-200 hover:text-orange-400">{translations.sliderAcc}</a>
       </div>
     </div>
@@ -293,7 +293,7 @@ const Home = () => {
           <div className='newarrivals'>
          {suggestedData.map(item => (
 
-          <div class="m-10 mx-4 max-w-screen-lg overflow-hidden  rounded-xl border shadow-lg md:pl-8" style={{ width: '40%' }}>
+          <div class="m-10 mx-4 max-w-screen-lg overflow-hidden  rounded-xl border shadow-lg md:pl-8 arrivals" style={{ width: '40%' }}>
           <div class="flex flex-col overflow-hidden bg-white sm:flex-row md:h-80">
          <div class="flex w-full flex-col p-4 sm:w-1/2 sm:p-8 lg:w-3/5">
        <h2 class="text-xl font-bold text-gray-900 md:text-2xl lg:text-4xl">{item.artName}</h2>
@@ -302,9 +302,9 @@ const Home = () => {
         ? item.description.substring(0, 40) + '...'
         : item.description}</p>
         <p class="mt-2 mb-2 max-w-md text-gray-500"><CategoryIcon className="mr-2" style={{color:'#e4f1ee'}} /> {item.categoryName}</p>
-        <p class="mt-2 mb-5 max-w-md text-gray-500"><LocationIcon className="mr-2" style={{color:'#ecf1e4'}} />{item.location}</p>
-      <a  class="group mt-auto flex w-44 cursor-pointer select-none items-center justify-center rounded-md  px-6 py-2 text-white transition" style={{background:'#d8c7a1'}}>
-        <span class="group flex w-full items-center justify-center rounded py-1 text-center font-bold" onClick={()=>handleBidButtonClick(item.id)}> BID NOW </span>
+        <p class="mt-2 mb-8 max-w-md text-gray-500"><LocationIcon className="mr-2" style={{color:'#ecf1e4'}} />{item.location}</p>
+      <a  class="group mt-auto flex w-44 cursor-pointer select-none items-center justify-center rounded-md  px-6 py-2 text-white transition bidbuttongr" style={{background:'#d8c7a1'}}>
+        <span class="group flex w-full items-center justify-center rounded py-1 text-center font-bold " onClick={()=>handleBidButtonClick(item.id)}> BID NOW </span>
         <svg class="flex-0 group-hover:w-6 ml-4 h-6 w-0 transition-all" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>

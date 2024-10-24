@@ -265,6 +265,7 @@ input[type="checkbox"] {
 .auctions-wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 50px;
   align-items: start;
 }
@@ -272,7 +273,8 @@ input[type="checkbox"] {
 #OpenedAuctionCard{
   display: flex;
   background-color: white !important;
-  width: 30%;
+  width: auto;
+  padding:10px
 }
 @media (max-width: 768px) {
   .sidebar {

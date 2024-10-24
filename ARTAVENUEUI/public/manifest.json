@@ -1,0 +1,19 @@
+{
+    "short_name": "B&B",
+    "name": "B&B App",
+    "icons": [
+      {
+        "src": "/images/imglogo.png",  
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/images/imglogo.png",  
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone"
+  }
+  

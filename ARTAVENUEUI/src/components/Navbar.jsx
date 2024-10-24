@@ -51,7 +51,6 @@ const Navbar = () => {
             <Link to="/Sell" onClick={handleClick}>
               <li>Sell</li>
             </Link>
-           
             {data.clientName ? (
               <div className="relative inline-block text-left mr-4">
                 <button
@@ -150,6 +149,39 @@ const Navbar = () => {
           <button>{click ? <FaTimes /> : <CiMenuFries />}</button>
         </div>
       </div>
+      {/* Mobile Menu Content */}
+      {click && (
+        <div className="menu-content">
+          <ul>
+            <Link to="/" onClick={handleClick}>
+              <li>Home</li>
+            </Link>
+            <Link to="/Auctions" onClick={handleClick}>
+              <li>Auctions</li>
+            </Link>
+            <Link to="/Buy" onClick={handleClick}>
+              <li>Buy</li>
+            </Link>
+            <Link to="/Sell" onClick={handleClick}>
+              <li>Sell</li>
+            </Link>
+            {data.clientName ? (
+              <li>
+                <button
+                  onClick={handleLogout}
+                  className="block w-full  text-sm text-black-700 hover:bg-gray-100"
+                >
+                  Log Out
+                </button>
+              </li>
+            ) : (
+              <Link to="/Login" onClick={handleClick}>
+                <li>Log In</li>
+              </Link>
+            )}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };
