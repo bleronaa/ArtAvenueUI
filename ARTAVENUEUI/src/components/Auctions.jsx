@@ -17,6 +17,8 @@ import { useLanguage} from './LanguageContext';
 const AuctionList = () => {
   const [auctions, setAuctions] = useState([]);
   const [upcomingAuctions, setUpcomingAuctions] = useState([]);
+  const [alert, SetAlert] = useState(false);
+
   const [openedAuctionsMessage, setOpenedAuctionsMessage] = useState("");
   const [upcomingAuctionsMessage, setUpcomingAuctionsMessage] = useState("");
   const [preloader, setPrelaoder]=useState(true);
@@ -40,6 +42,10 @@ const AuctionList = () => {
         } else {
           setAuctions([]);
           setOpenedAuctionsMessage("No opened auctions found.");
+        }
+
+        if(response.data.auctionList.length == 0 ){
+          SetAlert(true);
         }
       } catch (error) {
         console.error("Error fetching auction data:", error);

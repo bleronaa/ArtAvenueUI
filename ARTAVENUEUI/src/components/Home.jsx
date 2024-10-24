@@ -21,8 +21,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import en from './en.json';
 import al from './al.json';
 import { useLanguage} from './LanguageContext';
+import { useAuth } from '../../context';
+
 
 const Home = () => {
+  const authData=useAuth();
   const [homeData, setHomeData] = useState([]);
   const [imageCarousel, setImageCarousel] = useState([]);
   const [NewDiscoveries, setNewDiscoveries] = useState([]);
@@ -171,7 +174,7 @@ const Home = () => {
         <p class="text-base text-gray-700 md:text-lg">{translations.RegisterTxt}</p>
       </div>
       <div class="flex items-center">
-        <a href="/SignUp" class="inline-flex h-12 items-center justify-center rounded bg-orange-600 px-6 font-medium tracking-wide text-white shadow-md outline-none transition duration-200 hover:bg-orange-400 focus:ring">{translations.GetStarted} </a>
+        <a href="/SignUp" class="mr-6 inline-flex h-12 items-center justify-center rounded bg-orange-600 px-6 font-medium tracking-wide text-white shadow-md outline-none transition duration-200 hover:bg-orange-400 focus:ring">{translations.GetStarted} </a>
         <a href="/LogIn" aria-label="" class="inline-flex items-center font-semibold text-orange-600 transition-colors duration-200 hover:text-orange-400">{translations.sliderAcc}</a>
       </div>
     </div>

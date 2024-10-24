@@ -30,6 +30,40 @@ const navigate=useNavigate()
     console.log()
   };
 
+  const handleClaimClick = async (artItemId) => {
+    try {
+      const response = await axiosInstance.post('/CheckOut/checkOut', {
+        clientId: authData.data.id, 
+        productId: artItemId
+      });
+
+      if (response.data.success) {
+        // Redirect to the URL returned from the server
+        console.log(response.data.redirectUrl);
+        window.open(response.data.redirectUrl, '_blank');
+      } else {
+        console.error('Failed to check out. Status not true.');
+      }
+    } catch (error) {
+      console.error('Error during checkout request:', error);
+    }
+  };
+
+  const HandleApproveClickButton = async (artAuctionId) => {
+    try {
+      console.log('idddddddd',artAuctionId)
+      const response = await axiosInstance.get(`/ClientBid/approveArtitemByClient?ArtItemId=${artAuctionId}`);
+  
+      if (response.status) {
+        toastr.success(response.data.message);
+      } else {
+        toastr.error("Failed to approve the art item");
+      }
+    } catch (error) {
+      console.error("Error while approving the art item", error);
+    }
+  };
+  
 
 
   useEffect(() => {
@@ -37,7 +71,7 @@ const navigate=useNavigate()
       try {
         console.log('userdata',authData)
         const response = await axiosInstance.post(`/ClientBid/getClientBidsSellings`,{
-          clientId:authData.data.id
+          clientId:authData.data.id,
         });
         if (response.data) {
           setData(response.data);
@@ -85,6 +119,17 @@ const navigate=useNavigate()
         <button onClick={()=>HandleViewClickButton(item.artItemId)} class="group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600">
           <div class="flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition group-hover:bg-emerald-600 group-hover:text-white">View</div>
         </button>
+
+        {item.claim && (
+  <button 
+    onClick={() => handleClaimClick(item.artItemId)} 
+    className="group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600"
+  >
+    <div className="flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition group-hover:bg-emerald-600 group-hover:text-white">
+      Claim
+    </div>
+  </button>
+)}
       </article>
       
       
@@ -116,11 +161,11 @@ const navigate=useNavigate()
         </div>
        <div className="relative group">
   <button
-    onClick={() => HandleViewClickButton(item.artItemId)}
+    onClick={() => HandleApproveClickButton(item.artItemId)}
     className={`mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600 ${!item.approve ? 'cursor-not-allowed' : ''}`}
     disabled={!item.approve}
   >
-    <div className={`flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition ${item.approve ? ' group-hover:bg-emerald-600 group-hover:text-white' : ''}`}>
+    <div onclick className={`flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition ${item.approve ? ' group-hover:bg-emerald-600 group-hover:text-white' : ''}`}>
       Approve
     </div>
   </button>
