@@ -5,15 +5,18 @@
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Dark overlay */
     url(/src/images/banner.png) no-repeat center center / cover;
 }
-
+.headerTxt{
+  text-align: center !important;
+}
 .login-container {
-  background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 30px;
   width: auto;
   height: auto;
-  text-align: center;
+
+  text-align: left;
 }
 
 .login-container h2 {
@@ -23,8 +26,9 @@
 
 .form-group {
   padding: 18px;
-  width:auto
+  width:auto;
 }
+
 
 .form-group input {
   height:55px;

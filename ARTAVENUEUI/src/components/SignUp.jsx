@@ -78,7 +78,7 @@ const SignUp = () => {
 
 
       <div className="Signup-container">
-        <h2 style={{ textAlign: 'center', margin: '20px' }}>{translations.SignUp}</h2>
+        <h2 className='headerTxt'>{translations.SignUp}</h2>
         <form onSubmit={handleSubmit}>
           <div className='info-box'>
             <div className="form-group">
